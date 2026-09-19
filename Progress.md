@@ -134,8 +134,8 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 2. **Job-posting verifier:** Abhiram to drop real scraped postings into
    `job-posting-verifier/data/claimed-postings.json` (schema in that file; `origin: "real"`),
    then tune matcher thresholds (`lib/match.ts`) against them (re-run `scripts/selftest.mts`, check no
-   real posting comes back `no_such_req`), polish demo. No deploy — localhost only. **Waiting on
-   Abhiram's real claimed postings.**
+   real posting comes back `no_such_req`), polish demo. No deploy — localhost only. **Real postings
+   collected 2026-09-19 (see Log); matcher thresholds not yet tuned — awaiting Abhiram's review.**
 3. Keep this file, `CLAUDE.md`/`AGENTS.md`, and commits in sync as the single source of truth
    across all agents/sessions/humans working on this project.
 
@@ -326,3 +326,37 @@ commits for detail.
     for Abhiram (his own account for his own component is correct, not a deviation).
   - All work committed and pushed to `main` incrementally (one commit per task) so it stays
     pullable throughout.
+- **2026-09-19** — Claude (Abhiram's session, job-posting-verifier) collected 23 real "Coinbase"
+  postings into `job-posting-verifier/data/claimed-postings.json` (`real-001`..`real-023`,
+  `origin: "real"`; 4 demo rows kept, source "Demo sample"). Sites: Lensa 20, Jooble 1, Talent.com 1,
+  SimplyHired 1; Careerjet skipped (bot check "unusual traffic" interstitial, not bypassed). Only
+  listings whose displayed *employer* is Coinbase were taken — Jooble/Talent keyword search mostly
+  returns other companies that merely mention Coinbase (~1 in 20 was Coinbase). Matcher run (live
+  Greenhouse = cache, 217 roles): verified 10 / unverified 10 / no_such_req 7 across all 27 rows;
+  5 of 7 `no_such_req` are real Lensa Coinbase postings with reworded titles (false positives);
+  `match.ts` thresholds NOT changed.
+- **2026-09-19** — Claude (Abhiram's session, job-posting-verifier) at Abhiram's direction: the 20
+  Lensa rows (real-004..023) are real Coinbase roles with reworded titles (matcher false positives),
+  so they were moved out of `claimed-postings.json` into `data/lensa-review.json` (kept, not demoed).
+  Re-collected from lower-moderation sources: Craigslist (8 metros: NY, SF Bay, LA, Chicago, Seattle,
+  Austin, Miami, Atlanta) = 0 Coinbase results; Jobcase = 0; Jora US redirected to AU (skipped);
+  Adzuna = 9, Jobrapido = 3 (employer displayed as Coinbase) -> `real-024..035`. Live file now has 4
+  demo + real-001..003 + real-024..035 = 19 rows. Matcher (217 live roles): verified 5 / unverified 11
+  / no_such_req 3 (2 demo + `real-033` Jobrapido). Adzuna spreads each remote role across arbitrary
+  cities (location mismatch -> "unverified"); Jobrapido reworded titles resemble Lensa's. Thresholds
+  unchanged. No fraudulent-looking Coinbase postings found on any source.
+- **2026-09-19** — Claude (Abhiram's session, job-posting-verifier) pre-demo validation. `lib/match.ts`:
+  the verdict is now decided by **title only** (verified >= 0.85, unverified >= 0.55, else
+  no_such_req); `locationOk` is still returned but never changes status; ties on title prefer a
+  location-compatible role. Case file shows an informational "Location note". Thresholds unchanged.
+  Results: self-test 0/217 mis-verified; 217 roles x 4 scrambled locations = 0 non-verified, 0 false
+  no_such_req; no row > 0.90 returns non-verified. Clean `rm -rf .next && npm run build && npm start`
+  serves on **http://localhost:3000**. Offline simulation (fetch failing) loads the cached snapshot
+  ("cached snapshot" label) with identical 14/2/2 results. Stripe/Airbnb/Robinhood (Robinhood not in
+  cache) render the 0-posting empty state without errors; unknown company shows a red banner. Moved
+  `real-033` (Jobrapido, reworded real role -> false no_such_req) into `data/lensa-review.json`
+  (now 21 rows there). Live file: 18 rows -> 14 verified / 2 unverified (real-034, real-035, Jobrapido)
+  / 2 no_such_req (both fabricated demo rows). Known limits: amber (unverified) cards are not
+  clickable (only red opens a case file); offline the case file's "closest role" text 404s
+  (`/api/role`, needs live) and is silently omitted. Committed under `abhiramkandadi` at Abhiram's
+  direction (CLAUDE.md says `slhj1208` — Shrikar FYI).

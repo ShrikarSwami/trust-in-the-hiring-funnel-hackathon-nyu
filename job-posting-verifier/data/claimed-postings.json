@@ -42,5 +42,159 @@
     "contact_domain": "coinbase-careers.co",
     "collected_at": "2026-09-19T00:00:00Z",
     "origin": "fabricated"
+  },
+  {
+    "id": "real-001",
+    "claimed_company": "Coinbase",
+    "title": "Senior Product Designer, Coinbase One",
+    "location": "Remote",
+    "source": "Jooble",
+    "source_url": "https://jooble.org/desc/26799531369664533",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:40:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-002",
+    "claimed_company": "Coinbase",
+    "title": "Learning & Development Intern",
+    "location": "New York, NY, United States",
+    "source": "Talent.com",
+    "source_url": "https://www.talent.com/view?id=636631533352322628",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:40:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-003",
+    "claimed_company": "Coinbase",
+    "title": "Solutions Architect",
+    "location": "New York, NY",
+    "source": "SimplyHired",
+    "source_url": "https://www.simplyhired.com/job/m9eeuyJmfgz2TVmyE7jmjL5hwdTpwY4wMqzGiEu2Dxnz2IgU1LJEXw",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:40:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-024",
+    "claimed_company": "Coinbase",
+    "title": "Senior Product Designer, Coinbase One",
+    "location": "Nashville, Tennessee",
+    "source": "Adzuna",
+    "source_url": "https://www.adzuna.com/land/ad/5835237844",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-025",
+    "claimed_company": "Coinbase",
+    "title": "Senior Software Engineer - Frontend - Coinbase Card team",
+    "location": "Trenton, New Jersey",
+    "source": "Adzuna",
+    "source_url": "https://www.adzuna.com/land/ad/5832893446",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-026",
+    "claimed_company": "Coinbase",
+    "title": "Staff Software Engineer, Developer Infrastructure (Test Infrastructure)",
+    "location": "Augusta, Maine",
+    "source": "Adzuna",
+    "source_url": "https://www.adzuna.com/land/ad/5832786643",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-027",
+    "claimed_company": "Coinbase",
+    "title": "Staff Software Engineer, Developer Infrastructure",
+    "location": "Honolulu, Hawaii",
+    "source": "Adzuna",
+    "source_url": "https://www.adzuna.com/land/ad/5832786484",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-028",
+    "claimed_company": "Coinbase",
+    "title": "Staff Software Engineer, Solana Staking Protocol",
+    "location": "Baton Rouge, Louisiana",
+    "source": "Adzuna",
+    "source_url": "https://www.adzuna.com/land/ad/5820639347",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-029",
+    "claimed_company": "Coinbase",
+    "title": "Software Engineer, Developer Infrastructure",
+    "location": "Nashville, Tennessee",
+    "source": "Adzuna",
+    "source_url": "https://www.adzuna.com/land/ad/5880903464",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-030",
+    "claimed_company": "Coinbase",
+    "title": "Product Manager II, Workspace and Multi-User",
+    "location": "Olympia, Washington",
+    "source": "Adzuna",
+    "source_url": "https://www.adzuna.com/land/ad/5855046220",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-031",
+    "claimed_company": "Coinbase",
+    "title": "Group Product Manager, Compliance Automation",
+    "location": "Nashville, Tennessee",
+    "source": "Adzuna",
+    "source_url": "https://www.adzuna.com/land/ad/5832863132",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-032",
+    "claimed_company": "Coinbase",
+    "title": "Group Product Manager, Developer Infrastructure",
+    "location": "Nashville, Tennessee",
+    "source": "Adzuna",
+    "source_url": "https://www.adzuna.com/land/ad/5832863122",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-034",
+    "claimed_company": "Coinbase",
+    "title": "Senior Market Data Engineer — Real-Time, Low-Latency",
+    "location": "New York City, NY",
+    "source": "Jobrapido",
+    "source_url": "https://open.app.jobrapido.com/us/2721897176224497664/",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
+  },
+  {
+    "id": "real-035",
+    "claimed_company": "Coinbase",
+    "title": "Crypto Inventory Operations Intern: Analytics & Automation",
+    "location": "New York City, NY",
+    "source": "Jobrapido",
+    "source_url": "https://open.app.jobrapido.com/us/6143264001049493504/",
+    "contact_domain": null,
+    "collected_at": "2026-09-19T16:50:00Z",
+    "origin": "real"
   }
 ]

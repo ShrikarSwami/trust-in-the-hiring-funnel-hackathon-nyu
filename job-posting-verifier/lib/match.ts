@@ -118,42 +118,44 @@ export function matchPosting(claimed: ClaimedPosting, roles: Role[]): MatchResul
     return { status: "unverified", confidence: 0, titleScore: 0, locationOk: false };
   }
 
-  let bestTitleOnly: { role: Role; score: number } | null = null;
-  let bestFull: { role: Role; score: number } | null = null;
+  // The verdict is decided by title alone: aggregators copy remote roles into arbitrary
+  // cities, so location is reported (locationOk) but never changes the status. When several
+  // roles tie on title, prefer one whose location is compatible.
+  let top: { role: Role; score: number; locOk: boolean } | null = null;
   for (const role of roles) {
     const score = titleSimilarity(claimed.title, role.title);
-    if (!bestTitleOnly || score > bestTitleOnly.score) bestTitleOnly = { role, score };
-    if (locationCompatible(claimed.location, role.location) && (!bestFull || score > bestFull.score)) {
-      bestFull = { role, score };
+    const locOk = locationCompatible(claimed.location, role.location);
+    if (!top || score > top.score || (score === top.score && locOk && !top.locOk)) {
+      top = { role, score, locOk };
     }
   }
-  const top = bestTitleOnly!;
+  const best = top!;
 
-  if (bestFull && bestFull.score >= VERIFIED_TITLE) {
+  if (best.score >= VERIFIED_TITLE) {
     return {
       status: "verified",
-      matchedRole: bestFull.role,
-      closestRole: bestFull.role,
-      confidence: bestFull.score,
-      titleScore: bestFull.score,
-      locationOk: true,
+      matchedRole: best.role,
+      closestRole: best.role,
+      confidence: best.score,
+      titleScore: best.score,
+      locationOk: best.locOk,
     };
   }
-  if (top.score >= UNVERIFIED_TITLE) {
-    // Similar title exists but location differs or title only loosely matches.
+  if (best.score >= UNVERIFIED_TITLE) {
+    // A similar title exists but only loosely matches.
     return {
       status: "unverified",
-      closestRole: top.role,
-      confidence: top.score,
-      titleScore: top.score,
-      locationOk: bestFull?.role === top.role,
+      closestRole: best.role,
+      confidence: best.score,
+      titleScore: best.score,
+      locationOk: best.locOk,
     };
   }
   return {
     status: "no_such_req",
-    closestRole: top.score > 0.3 ? top.role : undefined,
-    confidence: 1 - top.score,
-    titleScore: top.score,
+    closestRole: best.score > 0.3 ? best.role : undefined,
+    confidence: 1 - best.score,
+    titleScore: best.score,
     locationOk: false,
   };
 }

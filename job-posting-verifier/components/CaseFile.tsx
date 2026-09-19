@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { MatchResult } from "@/lib/match";
-import type { ClaimedPosting } from "@/lib/match";
+import { locationCompatible, type ClaimedPosting } from "@/lib/match";
 
 interface Props {
   company: string;
@@ -83,6 +83,15 @@ export default function CaseFile({ company, provider, token, totalRoles, posting
         <Field label="Contact domain">
           {posting.contact_domain ?? <span className="text-dim">none listed</span>}
         </Field>
+        {closest && (
+          <Field label="Location note">
+            Claimed “{posting.location || "none"}”; closest real role is at “{closest.location || "none"}” (
+            {locationCompatible(posting.location, closest.location) ? "no conflict" : "differs"}).
+            <div className="mt-1 text-base text-dim">
+              Informational only — location never changes the verdict; aggregators often relocate remote roles.
+            </div>
+          </Field>
+        )}
         <Field label="Verdict">
           NO_SUCH_REQ · best title similarity in ATS {(match.titleScore * 100).toFixed(0)}%
         </Field>
