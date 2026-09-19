@@ -103,15 +103,16 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
    - Add-in (`email-scanner/addin`): task-pane UI + sweep animation + verdict/flags (Task 11)
      built by Codex, `tsc --noEmit` + `test:unit` + `npm run build` all clean — **not yet
      verified live in Outlook by a human** (agents can't drive the actual Outlook UI).
-   - `data/synthetic-emails.json`: 16 emails. `npm run calibrate` re-run after the allowlist fix
-     — confirm 16/16 in the Log once it finishes (was running when this was written).
+   - `data/synthetic-emails.json`: 16 emails. `npm run calibrate` **confirmed 16/16 passing**
+     after the allowlist fix.
    - Task 14b sample picker: built, typechecked, tested, built successfully. Not yet clicked in
      real Outlook.
    - Task 13/14: `.eml` builder (1 test, passing) + IMAP seed script; `--dry-run` verified (16
      files, correct headers). **Real IMAP APPEND not yet verified** — see blocker below.
    - Task 15: Thor-down drill and `LLM_ENABLED=false` drill both verified live (see Log).
-     `email-scanner/README.md` runbook written. Full live-Outlook dry run and final
-     `npm test && npm run typecheck` / `test:unit && tsc --noEmit` sweep still pending.
+     `email-scanner/README.md` runbook written. Final sweep **confirmed clean**: backend
+     52/52 tests + `tsc --noEmit`, add-in 5/5 tests + `tsc --noEmit`. Only the live-Outlook
+     dry run (needs a human) remains open.
 
    **Two things only Shrikar can do, blocking full Task 15 sign-off:**
    - **Live Outlook check:** open the sideloaded add-in, try the sample picker (or a real
