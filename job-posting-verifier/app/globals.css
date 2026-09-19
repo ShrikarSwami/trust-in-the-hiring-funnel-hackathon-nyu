@@ -65,9 +65,6 @@ body {
 .flash-bad { animation: flash-bad 1.4s ease-out both; }
 .pulse-dot { animation: pulse-dot 1s ease-in-out infinite; }
 .drawer-in { animation: drawer-in 0.25s ease-out both; }
-.fabricated-stripes {
-  background-image: repeating-linear-gradient(135deg, transparent 0 8px, rgb(251 191 36 / 0.07) 8px 16px);
-}
 
 @media (prefers-reduced-motion: reduce) {
   .row-in, .scanbar, .flash-ok, .flash-bad, .pulse-dot, .drawer-in { animation: none; }

@@ -25,18 +25,6 @@ const STATE_STYLE = {
   no_such_req: "border-l-bad bg-bad/10 flash-bad cursor-pointer hover:bg-bad/20",
 } as const;
 
-function OriginBadge({ origin }: { origin: ClaimedPosting["origin"] }) {
-  return origin === "real" ? (
-    <span className="rounded border border-accent/60 px-2 font-mono text-base uppercase tracking-wider text-accent">
-      Real · scraped
-    </span>
-  ) : (
-    <span className="rounded border border-dashed border-warn/70 px-2 font-mono text-base uppercase tracking-wider text-warn">
-      Fabricated · demo
-    </span>
-  );
-}
-
 export default function Home() {
   const [input, setInput] = useState("Coinbase");
   const [loading, setLoading] = useState(false);
@@ -192,19 +180,14 @@ export default function Home() {
                   <div
                     key={posting.id}
                     onClick={clickable ? () => setOpen({ posting, match }) : undefined}
-                    className={`row-in relative overflow-hidden rounded border border-line border-l-4 p-4 ${STATE_STYLE[state]} ${
-                      posting.origin === "fabricated" ? "fabricated-stripes" : ""
-                    }`}
+                    className={`row-in relative overflow-hidden rounded border border-line border-l-4 p-4 ${STATE_STYLE[state]}`}
                   >
                     {!done && (
                       <div className="absolute inset-x-0 top-0 h-0.5 overflow-hidden">
                         <div className="scanbar h-full w-1/4 bg-accent" />
                       </div>
                     )}
-                    <div className="flex items-start justify-between gap-3">
-                      <div className="font-mono text-lg font-medium leading-snug">{posting.title}</div>
-                      <OriginBadge origin={posting.origin} />
-                    </div>
+                    <div className="font-mono text-lg font-medium leading-snug">{posting.title}</div>
                     <div className="mt-1 font-mono text-base text-dim">
                       {posting.location || "—"} · via {posting.source}
                     </div>

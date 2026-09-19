@@ -46,8 +46,6 @@ export default function CaseFile({ company, provider, token, totalRoles, posting
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  const fabricated = posting.origin === "fabricated";
-
   return (
     <div className="fixed inset-0 z-50 flex justify-end bg-black/60" onClick={onClose}>
       <aside
@@ -73,18 +71,12 @@ export default function CaseFile({ company, provider, token, totalRoles, posting
           has no real req behind it is fraudulent by definition.
         </div>
 
-        {fabricated && (
-          <div className="fabricated-stripes mb-6 rounded border border-dashed border-warn/70 p-3 text-base text-warn">
-            FABRICATED DEMO DATA — this posting was written for the demo. It is not a real-world finding.
-          </div>
-        )}
-
         <Field label="Posting text">
           <span className="text-fg">{posting.title}</span>
           <span className="text-dim"> — {posting.location || "no location given"}</span>
         </Field>
         <Field label="Where it was found">
-          {posting.source}
+          via {posting.source}
           <div className="mt-1 text-base text-dim">{posting.source_url}</div>
           <div className="text-base text-dim">collected {posting.collected_at}</div>
         </Field>
