@@ -31,13 +31,21 @@ of the funnel, or the seam between them. Submissions due 4:30 PM; demos/judging 
 
 - [2026-09-19] Repo initialized. Event brief extracted from Luma PDF into `docs/event-brief.md`.
   No idea/architecture chosen yet.
+- [2026-09-19] Added root `AGENTS.md` with Codex instructions to fetch and read current
+  main-branch coordination files before every task and directly update this file after
+  each unit of work. Project direction and architecture remain undecided.
+- [2026-09-19] Standardized git identity: routine commits/pushes across all agents use the
+  `slhj1208` GitHub account (has write access to this `ShrikarSwami`-owned repo), documented
+  in `CLAUDE.md` and `AGENTS.md`.
 
 ## Next Steps
 
 1. Decide which side of the challenge to attack (applicant-flood detection, impersonation/offer
    verification, or both) — see "Open Decisions" below.
 2. Scaffold the chosen project structure once the idea is picked.
-3. Keep this file and commits in sync as the single source of truth across agents.
+3. Follow `CLAUDE.md` and the Codex instructions in `AGENTS.md`; keep this file and commits
+   in sync as the single source of truth across agents. Commit the new instructions and
+   this progress update together so other checkouts receive them.
 
 ## Open Decisions (need human input or team consensus)
 
@@ -53,3 +61,10 @@ Add a dated entry each time an agent completes a chunk of work. Keep entries sho
 commits for detail.
 
 - **2026-09-19** — Repo created (this commit). Event context captured. Awaiting idea selection.
+- **2026-09-19** — Codex fetched and read main-branch `Progress.md` and `CLAUDE.md`, checked
+  local files and recent commits, and added `AGENTS.md` to persist the same coordination
+  requirements for future Codex tasks. Updated Current State and Next Steps directly;
+  no implementation changes or project decisions made.
+- **2026-09-19** — Claude (orchestrator) documented `slhj1208` as the standard git identity
+  for commits/pushes in `CLAUDE.md` and `AGENTS.md`, and committed/pushed `AGENTS.md` plus
+  this file under that account.
