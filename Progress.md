@@ -59,7 +59,7 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
      `office-addin-manifest validate`). Dev certs installed. Verified with both servers running:
      `https://localhost:3000/taskpane.html` serves HTML and `https://localhost:3000/api/health`
      proxies through to the backend's real JSON. Sideload into Outlook on the web NOT attempted
-     (needs Shrikar's sign-in) — steps in Next Steps below. **Task 11 implemented locally:** the add-in task pane now reads the open email, scans through `/api/scan`, sweeps over plain-text highlights, and shows verdict/findings; the extra ribbon action was removed. Typecheck, unit tests, production build, and manifest validation pass. Live Outlook verification and screenshot remain pending with Shrikar. **Task 10 done:** pure highlight
+     (needs Shrikar's sign-in) — steps in Next Steps below. **Task 11 implemented locally:** the add-in task pane now reads the open email, scans through `/api/scan`, sweeps over plain-text highlights, and shows verdict/findings; the extra ribbon action was removed. Typecheck, unit tests, production build, and manifest validation pass; a follow-up fixed the dev-server hot-reload render path and rechecked typecheck/build. Live Outlook verification and screenshot remain pending with Shrikar. **Task 10 done:** pure highlight
      segment builder for the task pane — `src/taskpane/types.ts` (verbatim copy of backend
      types), `src/taskpane/lib/segments.ts` (`marksFor`, `buildSegments`, tiling overlap
      resolution: hard > soft > verified, later mark clipped), TDD with vitest (added as
@@ -152,6 +152,8 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
       scoped (both are client-side/verification tools, not ATS-side), revisit if scope changes.
 
 ## Log
+
+- **2026-09-19** — Codex (email-scanner) Task 11 review fix: corrected the task-pane hot-reload callback to render `<NextApp />`, keeping the pane mounted when App changes during development. `npx tsc --noEmit` and `npm run build` pass. Live Outlook verification remains pending.
 
 - **2026-09-19** — Codex (email-scanner) Task 11: replaced the add-in demo pane with Outlook email reading, backend scan request, animated highlight sweep, verdict and finding navigation; removed scaffold components and the manifest action button, renamed the ribbon group. Added busy/error/reduced-motion handling and text-only rendering. Add-in typecheck, 5 unit tests, production build, and manifest validation pass. Live Outlook check and screenshot remain pending.
 
