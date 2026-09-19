@@ -53,8 +53,9 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 
 ## Next Steps
 
-1. **Email scanner:** Task 1 (backend scaffold, shared types, env config) done in
-   `email-scanner/backend`. Continue executing Tasks 2–15 of
+1. **Email scanner:** Task 1 (backend scaffold, shared types, env config) and Task 2
+   (known-companies data + claimed-company detection) done in `email-scanner/backend`.
+   Continue executing Tasks 3–15 of
    [docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md).
    **Shrikar action, can start now:** try an Outlook.com app password for
    `slhj1208@outlook.com` IMAP (plan Task 14 Step 3) — Outlook.com may reject basic-auth IMAP,
@@ -115,3 +116,7 @@ commits for detail.
 - **2026-09-19** — Claude (email-scanner) Task 1: scaffolded `email-scanner/backend` (package.json,
   tsconfig, vitest config, .env.example, .gitignore), added `src/types.ts` and `src/config.ts`;
   4/4 tests passing.
+- **2026-09-19** — Claude (email-scanner) Task 2: added `email-scanner/data/known-companies.json`
+  (14 seed companies) and `src/companies.ts` (`loadCompanies`, `emailDomain`, `domainMatches`,
+  `findClaimedCompany`) for detecting which company an email claims to represent; 14/14 tests
+  passing (10 new), `tsc --noEmit` clean.

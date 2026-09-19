@@ -1,0 +1,16 @@
+[
+  { "company": "Tesla", "domains": ["tesla.com"] },
+  { "company": "Amazon", "domains": ["amazon.com", "amazon.jobs"] },
+  { "company": "Google", "domains": ["google.com"] },
+  { "company": "Microsoft", "domains": ["microsoft.com"] },
+  { "company": "Meta", "domains": ["meta.com", "fb.com"] },
+  { "company": "Apple", "domains": ["apple.com"] },
+  { "company": "Netflix", "domains": ["netflix.com"] },
+  { "company": "JPMorgan Chase", "domains": ["jpmorgan.com", "jpmchase.com", "chase.com"] },
+  { "company": "Goldman Sachs", "domains": ["gs.com"] },
+  { "company": "Deloitte", "domains": ["deloitte.com"] },
+  { "company": "Stripe", "domains": ["stripe.com"] },
+  { "company": "Acme Robotics", "domains": ["acmerobotics.example.com"] },
+  { "company": "Brightline Analytics", "domains": ["brightline-analytics.example.com"] },
+  { "company": "Northwind Health", "domains": ["northwindhealth.example.com"] }
+]
