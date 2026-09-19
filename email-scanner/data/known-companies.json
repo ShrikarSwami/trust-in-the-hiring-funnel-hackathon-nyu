@@ -12,5 +12,11 @@
   { "company": "Stripe", "domains": ["stripe.com"] },
   { "company": "Acme Robotics", "domains": ["acmerobotics.example.com"] },
   { "company": "Brightline Analytics", "domains": ["brightline-analytics.example.com"] },
-  { "company": "Northwind Health", "domains": ["northwindhealth.example.com"] }
+  { "company": "Northwind Health", "domains": ["northwindhealth.example.com"] },
+  { "company": "Solari", "domains": ["getsolari.com"] },
+  { "company": "Block Convey", "domains": ["blockconvey.com"] },
+  { "company": "Visionbrew", "domains": ["visionbrew.app"] },
+  { "company": "Integral Recruiting", "domains": ["integralrecruiting.com"] },
+  { "company": "localhost:nyc", "domains": ["localhost-nyc.com"] },
+  { "company": "NYU", "domains": ["nyu.edu"] }
 ]
