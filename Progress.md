@@ -40,10 +40,10 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
   1. **Email trust scanner** (Shrikar's build) — real Outlook Office-JS add-in; hybrid
      rules+LLM detection; design approved and written up in
      [docs/superpowers/specs/2026-09-19-email-scanner-design.md](docs/superpowers/specs/2026-09-19-email-scanner-design.md).
-     In progress in `email-scanner/backend`: Tasks 1–4 done (scaffold/types/config,
+     In progress in `email-scanner/backend`: Tasks 1–5 done (scaffold/types/config,
      known-companies data + claimed-company detection, sender-domain rule, spellcheck rule
-     with false-positive guards); 23/23 tests passing. Tasks 5–15 of the implementation plan
-     still to come.
+     with false-positive guards, verdict computation); 27/27 tests passing. Tasks 6–15 of the 
+     implementation plan still to come.
   2. **Job-posting verification tool** (Abhiram's build) — checks postings claiming to be from
      a company against that company's real published job list. No design yet; intentionally
      left for Abhiram + his agent(s) to brainstorm and design themselves.
@@ -55,11 +55,10 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 
 ## Next Steps
 
-1. **Email scanner:** Task 1 (backend scaffold, shared types, env config), Task 2
-   (known-companies data + claimed-company detection), Task 3 (sender-domain rule:
-   hard flag / verified), and Task 4 (spellcheck rule with false-positive guards) done in
-   `email-scanner/backend`.
-   Continue executing Tasks 5–15 of
+1. **Email scanner:** Tasks 1–5 done (backend scaffold, shared types, env config;
+   known-companies data + claimed-company detection; sender-domain rule; spellcheck rule with 
+   false-positive guards; verdict computation) in `email-scanner/backend`.
+   Continue executing Tasks 6–15 of
    [docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md).
    **Shrikar action, can start now:** try an Outlook.com app password for
    `slhj1208@outlook.com` IMAP (plan Task 14 Step 3) — Outlook.com may reject basic-auth IMAP,
@@ -132,3 +131,6 @@ commits for detail.
   and `src/rules/spell.ts` (`checkSpelling`) — nspell + dictionary-en misspelling flags with
   false-positive guards (proper nouns, short words, digits, URLs/emails, possessives, allowlist);
   23/23 tests passing (5 new), `tsc --noEmit` clean.
+- **2026-09-19** — Claude (email-scanner) Task 5: added `src/verdict.ts` (`computeVerdict`, 
+  `sortFlags`) — verdict tiers (Legitimate/Suspicious/Likely Scam) and flag ordering (sender → 
+  subject → body, then span_start); 27/27 tests passing (4 new), `tsc --noEmit` clean.
