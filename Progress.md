@@ -40,10 +40,14 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
   1. **Email trust scanner** (Shrikar's build) — real Outlook Office-JS add-in; hybrid
      rules+LLM detection; design approved and written up in
      [docs/superpowers/specs/2026-09-19-email-scanner-design.md](docs/superpowers/specs/2026-09-19-email-scanner-design.md).
-     In progress in `email-scanner/backend`: Tasks 1–6 done (scaffold/types/config,
+     In progress in `email-scanner/backend`: Tasks 1–7 done (scaffold/types/config,
      known-companies data + claimed-company detection, sender-domain rule, spellcheck rule
      with false-positive guards, verdict computation, LLM prompt/tolerant JSON parsing/span
-     location); 36/36 tests passing. Tasks 7–15 of the implementation plan still to come.
+     location, Ollama client with retry/timeout/warm-up/health + live smoke script); 42/42
+     tests passing. Live smoke test against Thor (`llama3:70b`) confirmed working end-to-end
+     (`status: "ok"`, 27.9s). Local Ollama fallback (`localhost:11434`) still down — needs
+     `ollama serve` + `ollama pull qwen2.5vl:7b` before demo if Thor is unreachable. Tasks
+     8–15 of the implementation plan still to come.
   2. **Job-posting verification tool** (Abhiram's build) — checks postings claiming to be from
      a company against that company's real published job list. No design yet; intentionally
      left for Abhiram + his agent(s) to brainstorm and design themselves.
@@ -64,11 +68,15 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 
 ## Next Steps
 
-1. **Email scanner:** Tasks 1–6 done (backend scaffold, shared types, env config;
+1. **Email scanner:** Tasks 1–7 done (backend scaffold, shared types, env config;
    known-companies data + claimed-company detection; sender-domain rule; spellcheck rule with 
-   false-positive guards; verdict computation; LLM prompt/tolerant JSON parsing/span location)
-   in `email-scanner/backend`. Continue executing Tasks 7–15 of
+   false-positive guards; verdict computation; LLM prompt/tolerant JSON parsing/span location;
+   Ollama client with retry/timeout/warm-up/health + live smoke script)
+   in `email-scanner/backend`. Continue executing Tasks 8–15 of
    [docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md).
+   **Demo-readiness gap:** local Ollama fallback (`localhost:11434`) is not running — before
+   the demo, run `ollama serve` and `ollama pull qwen2.5vl:7b` on the Mac so the
+   `OLLAMA_BASE_URL=http://localhost:11434 OLLAMA_MODEL=qwen2.5vl:7b` fallback path is exercised.
    **Shrikar action, can start now:** try an Outlook.com app password for
    `slhj1208@outlook.com` IMAP (plan Task 14 Step 3) — Outlook.com may reject basic-auth IMAP,
    in which case an Entra app registration is needed.
@@ -158,3 +166,10 @@ commits for detail.
   `findingsToFlags`) — tolerant JSON extraction/parsing (zod 4, code fences, `flags`/`findings`
   key tolerance, category defaulting) and whitespace/case/curly-quote-tolerant span location;
   36/36 tests passing (9 new), `tsc --noEmit` clean.
+- **2026-09-19** — Claude (email-scanner) Task 7: added `src/llm/client.ts` (`runLlmCheck`,
+  `warmUp`, `llmHealth`) — POSTs to `{base}/api/chat` with the configured model, retries once
+  on unparseable output, returns `unavailable` (never throws) on network error or after two
+  bad parses; `scripts/llm-smoke.ts` live smoke script; 42/42 tests passing (6 new), `tsc
+  --noEmit` clean. Live smoke test against Thor (`llama3:70b`) succeeded: `status: "ok"`,
+  4 flags (3 body-located, 1 subject-located), 27.9s elapsed. Local Ollama fallback
+  (`localhost:11434`) confirmed still down — demo-readiness gap recorded above.
