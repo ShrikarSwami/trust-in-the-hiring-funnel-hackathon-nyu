@@ -51,8 +51,16 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
      a fake Tesla/Gmail email → `"Likely Scam"` with `domain_mismatch`, a `misspelling` on
      "detials", two `llm_*` flags, `llm_status: "ok"`, ~22s. Local Ollama fallback
      (`localhost:11434`) still down — needs `ollama serve` + `ollama pull qwen2.5vl:7b` before
-     demo if Thor is unreachable. Tasks 9–15 of the implementation plan (Office add-in,
-     synthetic data, IMAP seeding, demo runbook) still to come.
+     demo if Thor is unreachable. **Task 9 done:** scaffolded `email-scanner/addin` (Yeoman
+     `generator-office` React+TypeScript Outlook add-in, React 18.3.1, webpack-dev-server 6, XML
+     manifest); added the `/api` proxy to `webpack.config.js` (`/api/*` → `http://localhost:3001`);
+     renamed manifest to "Trust Scanner" and fixed it to a read-scenario add-in
+     (`MessageReadCommandSurface`, `ReadItem`, button label "Scan for scams"; validated clean via
+     `office-addin-manifest validate`). Dev certs installed. Verified with both servers running:
+     `https://localhost:3000/taskpane.html` serves HTML and `https://localhost:3000/api/health`
+     proxies through to the backend's real JSON. Sideload into Outlook on the web NOT attempted
+     (needs Shrikar's sign-in) — steps in Next Steps below. Tasks 10–15 of the implementation
+     plan (sweep UI, synthetic data, IMAP seeding, demo runbook) still to come.
   2. **Job-posting verification tool** (Abhiram's build) — checks postings claiming to be from
      a company against that company's real published job list. Designed and built — see the
      "Job-posting verifier built" entry below.
@@ -77,19 +85,23 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 
 ## Next Steps
 
-1. **Email scanner:** Backend complete — Tasks 1–8 done (backend scaffold, shared types, env
-   config; known-companies data + claimed-company detection; sender-domain rule; spellcheck
-   rule with false-positive guards; verdict computation; LLM prompt/tolerant JSON
-   parsing/span location; Ollama client with retry/timeout/warm-up/health + live smoke script;
-   `/scan` orchestrator + Express server with `POST /scan`/`GET /health`)
-   in `email-scanner/backend`. Continue executing Tasks 9–15 of
+1. **Email scanner:** Backend complete (Tasks 1–8); Task 9 (Outlook add-in scaffold + `/api`
+   proxy + manifest rename) also done — see Current State. Continue executing Tasks 10–15 of
    [docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md).
    **Demo-readiness gap:** local Ollama fallback (`localhost:11434`) is not running — before
    the demo, run `ollama serve` and `ollama pull qwen2.5vl:7b` on the Mac so the
    `OLLAMA_BASE_URL=http://localhost:11434 OLLAMA_MODEL=qwen2.5vl:7b` fallback path is exercised.
-   **Shrikar action, can start now:** try an Outlook.com app password for
+   **Shrikar action, can start now:** (a) try an Outlook.com app password for
    `slhj1208@outlook.com` IMAP (plan Task 14 Step 3) — Outlook.com may reject basic-auth IMAP,
-   in which case an Entra app registration is needed.
+   in which case an Entra app registration is needed; (b) sideload the add-in (not attempted by
+   the agent — requires interactive sign-in): `cd email-scanner/backend && npm start` (leave
+   running), then in `email-scanner/addin` run `npm run dev-server` (serves
+   `https://localhost:3000`), open `https://localhost:3000/taskpane.html` once to confirm no
+   cert warning, sign in to Outlook on the web as `slhj1208@outlook.com`, open
+   `https://aka.ms/olksideload`, then My add-ins → Custom Add-ins → Add a custom add-in → Add
+   from file → `email-scanner/addin/manifest.xml`, open any email and click "Scan for scams"
+   (under the "…"/Apps menu if not pinned). With the backend running, `fetch("/api/health")`
+   from the pane's devtools console should return the backend's JSON (proves the proxy).
 2. **Job-posting verifier:** Abhiram to drop real scraped postings into
    `job-posting-verifier/data/claimed-postings.json` (schema in that file; `origin: "real"`),
    then tune matcher thresholds (`lib/match.ts`) against them (re-run `scripts/selftest.mts`, check no
@@ -209,3 +221,20 @@ commits for detail.
   Vercel deploy attempted then cancelled by Abhiram (localhost demo); no deploy artifacts/config
   exist. Verified `npm run build && npm start` serves on port 3000. Waiting on Abhiram's real
   `data/claimed-postings.json`.
+- **2026-09-19** — Claude (email-scanner) Task 9: scaffolded `email-scanner/addin` via
+  `npx --package yo --package generator-office -- yo office react "Trust Scanner" outlook xml
+  --ts --output addin --skip-cache` (React 18.3.1, webpack-dev-server 6, XML manifest). The
+  generator's own `convert-to-single-host` step failed mid-run (`office-addin-manifest: command
+  not found` — it shells out via `npx` before `npm install` has run); worked around by running
+  `npm install` manually, then hand-fixing `manifest.xml` (DisplayName "Trust Scanner",
+  Description, `Permissions` ReadWriteItem→ReadItem, `ExtensionPoint` MessageCompose→
+  MessageReadCommandSurface, button label/tooltip "Scan for scams") and creating the missing
+  `.gitignore` (also dropped by the failed step). Added the `/api` proxy to `webpack.config.js`
+  devServer. `office-addin-manifest validate manifest.xml` passes clean; `office-addin-dev-certs
+  install` succeeded without a keychain prompt. Verified end-to-end: started backend (`npm
+  start` in `email-scanner/backend`) and add-in dev server (`npm run dev-server`) in the
+  background, `curl -sk https://localhost:3000/taskpane.html` returned HTML, `curl -sk
+  https://localhost:3000/api/health` returned the backend's real health JSON through the proxy;
+  both servers stopped afterward. Sideload into Outlook on the web NOT attempted (needs
+  interactive sign-in as `slhj1208@outlook.com`) — steps recorded in Next Steps. Full report:
+  `.superpowers/sdd/2026-09-19-email-scanner/task-9-report.md`.
