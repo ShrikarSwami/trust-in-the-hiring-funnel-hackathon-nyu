@@ -24,8 +24,10 @@ of the funnel, or the seam between them. Submissions due 4:30 PM; demos/judging 
 
 - Claude instance A (this orchestrator / primary dev session)
 - Claude instance B (secondary dev session — different machine/tab)
-- ChatGPT instance (secondary dev assistant)
+- ChatGPT / Codex instance (secondary dev assistant, see `AGENTS.md`)
 - Shrikar Swami (human, final decision-maker)
+- Abhiram Reddy "Ready" Kandadi (human, teammate — working a related/complementary angle with
+  his own coding agents; see `AbhiramAgentHandoff.md` once added)
 
 ## Current State
 
@@ -37,6 +39,12 @@ of the funnel, or the seam between them. Submissions due 4:30 PM; demos/judging 
 - [2026-09-19] Standardized git identity: routine commits/pushes across all agents use the
   `slhj1208` GitHub account (has write access to this `ShrikarSwami`-owned repo), documented
   in `CLAUDE.md` and `AGENTS.md`.
+- [2026-09-19] Decided project direction: **Track B**. Two complementary components planned:
+  (1) an Outlook-UI-style email scanner (this team's build — highlights suspicious sender
+  domains, misspellings, and other impersonation signals red/green), and (2) a job-posting
+  verification tool from teammate Abhiram (checks postings claiming to be from a company
+  against that company's real published job list). Design for (1) is in progress
+  (brainstorming session); handoff doc for (2) pending as `AbhiramAgentHandoff.md`.
 
 ## Next Steps
 
@@ -49,11 +57,12 @@ of the funnel, or the seam between them. Submissions due 4:30 PM; demos/judging 
 
 ## Open Decisions (need human input or team consensus)
 
-- [ ] Which side of the funnel to target: Side A (detecting AI-inflated/fake applicants) vs.
-      Side B (impersonation/offer-letter/recruiter verification) vs. both.
-- [ ] Tech stack.
-- [ ] Whether to integrate with an existing ATS (per event guidance: "plugs into an existing
-      applicant tracking system rather than replacing it" is preferred).
+- [x] Which side of the funnel to target: **Track B — impersonation/offer-letter/recruiter
+      verification** (Side B in `docs/event-brief.md`). Decided 2026-09-19.
+- [ ] Tech stack for the Outlook-scan feature — under design as of 2026-09-19 (see brainstorming
+      session in chat / upcoming design doc under `docs/superpowers/specs/`).
+- [ ] Whether to integrate with an existing ATS — likely N/A for this angle (email-client-side
+      feature, not ATS-side), revisit if scope changes.
 
 ## Log
 

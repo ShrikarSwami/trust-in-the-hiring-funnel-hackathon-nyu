@@ -8,6 +8,11 @@ are real, and candidates can't tell which employers reaching out are real. This 
 one (or both) sides of that problem. See [docs/event-brief.md](docs/event-brief.md) for the full
 challenge brief.
 
+## Team
+
+- Shrikar Swami
+- Abhiram Reddy "Ready" Kandadi
+
 ## Working on this project
 
 This repo is worked on by multiple assistant sessions (several Claude Code instances plus a
