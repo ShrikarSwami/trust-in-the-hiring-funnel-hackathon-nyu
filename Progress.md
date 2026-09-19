@@ -107,24 +107,37 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
      after the allowlist fix.
    - Task 14b sample picker: built, typechecked, tested, built successfully. Not yet clicked in
      real Outlook.
-   - Task 13/14: `.eml` builder (1 test, passing) + IMAP seed script; `--dry-run` verified (16
-     files, correct headers). **Real IMAP APPEND not yet verified** — see blocker below.
+   - Task 13/14: `.eml` builder (1 test, passing) + IMAP seed script; `--dry-run` verified.
+     **Real IMAP APPEND fails with `AuthenticationFailure: Login is disabled`** — Microsoft
+     blocks basic-auth IMAP for this account even with 2FA on + a valid app password (Shrikar
+     completed both). Shrikar decided (2026-09-19) to pursue the **OAuth/Entra device-code
+     fallback** (Task 14 Step 4) rather than settle for the sample picker alone — in progress:
+     `@azure/msal-node` installed, `scripts/get-outlook-token.ts` written and typechecked.
+     Blocked on Shrikar completing an Entra app registration (hit a wrong-tenant error in the
+     Azure portal — "Microsoft Services" tenant instead of his personal account's own tenant —
+     retrying with a fresh sign-in). Sample picker remains the guaranteed fallback regardless.
    - Task 15: Thor-down drill and `LLM_ENABLED=false` drill both verified live (see Log).
      `email-scanner/README.md` runbook written. Final sweep **confirmed clean**: backend
      52/52 tests + `tsc --noEmit`, add-in 5/5 tests + `tsc --noEmit`. Only the live-Outlook
      dry run (needs a human) remains open.
 
-   **Two things only Shrikar can do, blocking full Task 15 sign-off:**
-   - **Live Outlook check:** open the sideloaded add-in, try the sample picker (or a real
-     email), confirm the sweep/verdict/highlights render correctly. Report back what you see
-     (screenshot helpful) — this is the one thing no agent here can verify directly.
-   - **IMAP password:** `backend/.env` has `IMAP_USER=slhj1208@outlook.com` but
-     `IMAP_PASSWORD=` is **empty** — the app password from `operatorTasks.md` step 2 doesn't
-     appear to have been saved (or the test failed and this was left blank intentionally?).
-     Please either paste the actual app password directly into `backend/.env` yourself (never
-     into chat/here), or tell us "IMAP failed" so we mark Task 14 done-via-sample-picker-only
-     and move on — either way the demo isn't blocked, `email-scanner/data/synthetic-emails.json`
-     via the Task 14b picker already works standalone.
+   **Sponsor/event-themed data expansion (2026-09-19, done):** Shrikar asked for 14 more
+   synthetic emails (7 legit, 7 scam) using this event's own sponsors/hosts as claimed
+   companies — Solari (`getsolari.com`), Block Convey (`blockconvey.com`), Visionbrew
+   (`visionbrew.app`), Integral Recruiting (`integralrecruiting.com`), localhost:nyc
+   (`localhost-nyc.com`), NYU (`nyu.edu`), plus Meta as a legit big-name example — for a "cute"
+   demo touch judges will recognize. Real domains confirmed via web search, not guessed. Added
+   to `known-companies.json` and `synthetic-emails.json` (now 30 emails total: `legit-007..013`,
+   `scam-011..017`); `samples.json` regenerated from the full set. Calibration found 3 false
+   positives (dictionary gaps for "observability"/"iCIMS", and "localhost"/"nyc" not matching
+   the tokenizer's per-word company-name allowlist for the single-token name "localhost:nyc"),
+   fixed via `spell-allowlist.txt`. **`npm run calibrate` confirms 30/30.** Backend 52/52 tests
+   + `tsc --noEmit`, add-in tests + build all clean.
+
+   **One thing only Shrikar can still do:** **Live Outlook check** — open the sideloaded
+   add-in, try the sample picker (or a real email), confirm the sweep/verdict/highlights
+   render correctly. Report back what you see (screenshot helpful) — this is the one thing no
+   agent here can verify directly, and it's the last open item for Task 15 sign-off.
 
    **Deferred minors (unchanged from earlier handoff, still low priority):** LLM quotes with
    mid-quote "…" can't be located and are dropped; `parseLlmJson` uses first-{/last-};
