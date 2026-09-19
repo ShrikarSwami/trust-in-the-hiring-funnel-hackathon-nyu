@@ -21,9 +21,16 @@ project is being built for.
 ## Git identity for commits/pushes
 
 The repo is owned by the `ShrikarSwami` GitHub account (`origin` points at
-`github.com/ShrikarSwami/trust-in-the-hiring-funnel-hackathon-nyu`), but day-to-day commits and
-pushes should be made using the **`slhj1208`** GitHub account/credentials — it already has
-write access to this repo, and is the account expected to be active in `gh auth status` for
-routine agent work. Do not switch the active `gh` account to `ShrikarSwami` for ordinary
-commits; only the human should do that if repo-admin actions are ever needed. Local git commit
-identity (`git config user.name` / `user.email`) should likewise stay `SLHJ1208`.
+`github.com/ShrikarSwami/trust-in-the-hiring-funnel-hackathon-nyu`).
+
+- **AI agents working on Shrikar's components** (e.g. `email-scanner/`, and shared root files
+  like this one/`Progress.md`) should commit/push as **`slhj1208`** — it already has write
+  access, and is the account expected to be active in `gh auth status` for that work. Local git
+  commit identity (`git config user.name` / `user.email`) should likewise be `SLHJ1208` /
+  `SLHJ1208@gmail.com` for those commits.
+- **This rule is for AI agents, not for Abhiram.** Abhiram commits under his own GitHub account
+  (`abhiramkandadi`, already a repo collaborator with write access) for his own component
+  (`job-posting-verifier/`) and anything else he does directly — that's his call, not a
+  deviation to flag. If his own coding agent(s) are the ones committing on his behalf, same
+  logic applies: they should use his identity, not `slhj1208`, since that's effectively
+  Shrikar's own credentials.
