@@ -90,6 +90,35 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
   Pushed to `origin/main` under `abhiramkandadi` per Abhiram's instruction (CLAUDE.md says
   `slhj1208` — **Shrikar please note**).
 
+- [2026-09-19] **Email scanner demo pivot: real IMAP/Outlook dependency dropped for judging.**
+  Both real-mailbox seeding paths hit hard walls: basic-auth IMAP → `Login is disabled`;
+  OAuth device-code (after registering `trust-scanner-seed` in Entra, adding the
+  `IMAP.AccessAsUser.All` permission via manifest edit since the picker UI couldn't find
+  Exchange Online on this personal tenant, enabling public client flows) → authenticated
+  successfully but `User is authenticated but not connected` — the mailbox's IMAP protocol
+  access itself is blocked server-side, not fixable client-side. Per Shrikar: stop pursuing
+  IMAP, build a **standalone Outlook-lookalike demo page** instead
+  (`email-scanner/addin/src/demo/`, served at `/demo.html` alongside the real add-in, new
+  webpack entry). Reuses the real, tested task-pane pieces (`Highlighted`, `marksFor`,
+  `VerdictBanner`, `FlagList`, `useSweep`) with zero Office.js — an Outlook-style shell
+  (folder rail, inbox list populated directly from the 30 synthetic emails, reading pane) that
+  needs no Outlook account or IMAP at all. `seed-mailbox.ts`/`get-outlook-token.ts` stay in the
+  repo as correct, tested code, just unused for this event.
+  Iterated per feedback into its current state: real Outlook fonts/metrics inspected live via
+  Claude in Chrome; sponsor/event emails (Solari, Block Convey, Visionbrew, Integral
+  Recruiting, localhost:nyc, NYU, Meta) reordered to the top of the inbox; all emails now greet
+  "Somya Gupta" (varied Somya/Somya Gupta/Mr. Gupta) instead of a generic name; emoji chrome
+  icons replaced with flat monochrome SVGs; scanline/highlight animation made more dramatic
+  (glowing gradient sweep, pulsing red "spotlight" on hard flags); a "Check {company}'s real
+  careers page" button appears after scanning, linking to each company's actual careers page
+  (verified via web search) — omitted for the 3 fictional demo companies with no real page.
+  **`backend/scripts/cache-demo-results.ts`** pre-computes real scan results (live Thor) for
+  all 30 emails into `addin/src/demo/scan-cache.json`; the demo checks this cache first (a
+  short artificial delay keeps the sweep feeling intentional) and falls back to a live call on
+  a miss — makes the demo both fast and immune to Thor/Tailscale flakiness during judging.
+  Recomputed after the name-length change (offsets shift). Confirmed clean end to end: backend
+  tests, add-in tests, both typechecks, production build.
+
 ## Next Steps
 
 1. **Email scanner — Tasks 1–15 of
@@ -107,19 +136,21 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
      after the allowlist fix.
    - Task 14b sample picker: built, typechecked, tested, built successfully. Not yet clicked in
      real Outlook.
-   - Task 13/14: `.eml` builder (1 test, passing) + IMAP seed script; `--dry-run` verified.
-     **Real IMAP APPEND fails with `AuthenticationFailure: Login is disabled`** — Microsoft
-     blocks basic-auth IMAP for this account even with 2FA on + a valid app password (Shrikar
-     completed both). Shrikar decided (2026-09-19) to pursue the **OAuth/Entra device-code
-     fallback** (Task 14 Step 4) rather than settle for the sample picker alone — in progress:
-     `@azure/msal-node` installed, `scripts/get-outlook-token.ts` written and typechecked.
-     Blocked on Shrikar completing an Entra app registration (hit a wrong-tenant error in the
-     Azure portal — "Microsoft Services" tenant instead of his personal account's own tenant —
-     retrying with a fresh sign-in). Sample picker remains the guaranteed fallback regardless.
+   - Task 13/14: **CLOSED, both real-mailbox auth paths dead-ended** (basic-auth: `Login is
+     disabled`; OAuth device-code, after full Entra app setup: `authenticated but not
+     connected` — the mailbox's IMAP protocol access itself is blocked server-side). Shrikar's
+     final call: stop pursuing real IMAP entirely. `.eml` builder + seed script stay in the
+     repo as correct, tested code, just unused for this event.
    - Task 15: Thor-down drill and `LLM_ENABLED=false` drill both verified live (see Log).
-     `email-scanner/README.md` runbook written. Final sweep **confirmed clean**: backend
-     52/52 tests + `tsc --noEmit`, add-in 5/5 tests + `tsc --noEmit`. Only the live-Outlook
-     dry run (needs a human) remains open.
+     `email-scanner/README.md` runbook written and reflects the demo pivot below. Final sweep
+     **confirmed clean**: backend 52/52 tests + `tsc --noEmit`, add-in tests + `tsc --noEmit`,
+     production build.
+   - **DEMO PLAN CHANGED:** the live judged demo uses **`email-scanner/addin/dist/demo.html`**
+     (standalone Outlook-lookalike page, see Current State), not the real Outlook add-in. The
+     real add-in still exists and still works (sideload steps in `README.md`) if Shrikar wants
+     to show "yes it's a real Outlook add-in too," but the demo.html page is the primary,
+     rehearsed, judging-day path — start both servers (`backend: npm start`,
+     `addin: npm run dev-server`) and open `https://localhost:3000/demo.html`.
 
    **Sponsor/event-themed data expansion (2026-09-19, done):** Shrikar asked for 14 more
    synthetic emails (7 legit, 7 scam) using this event's own sponsors/hosts as claimed
@@ -134,10 +165,10 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
    fixed via `spell-allowlist.txt`. **`npm run calibrate` confirms 30/30.** Backend 52/52 tests
    + `tsc --noEmit`, add-in tests + build all clean.
 
-   **One thing only Shrikar can still do:** **Live Outlook check** — open the sideloaded
-   add-in, try the sample picker (or a real email), confirm the sweep/verdict/highlights
-   render correctly. Report back what you see (screenshot helpful) — this is the one thing no
-   agent here can verify directly, and it's the last open item for Task 15 sign-off.
+   **Status: demo-ready, being polished.** Live-verified in the browser by Shrikar (not a
+   real Outlook account — the standalone demo page): sweep/verdict/highlights all render
+   correctly and cached results return near-instantly. Iterating on visual polish per feedback
+   (see the demo-pivot Current State entry above for what's already landed).
 
    **Deferred minors (unchanged from earlier handoff, still low priority):** LLM quotes with
    mid-quote "…" can't be located and are dropped; `parseLlmJson` uses first-{/last-};
@@ -373,3 +404,18 @@ commits for detail.
   clickable (only red opens a case file); offline the case file's "closest role" text 404s
   (`/api/role`, needs live) and is silently omitted. Committed under `abhiramkandadi` at Abhiram's
   direction (CLAUDE.md says `slhj1208` — Shrikar FYI).
+- **2026-09-19** — Claude (orchestrator): both real-IMAP auth paths for the demo mailbox
+  confirmed dead (basic-auth `Login is disabled`; OAuth device-code, after full Entra app
+  registration + `IMAP.AccessAsUser.All` permission added via manifest edit +
+  `Allow public client flows` enabled, `authenticated but not connected`). Shrikar called it:
+  stop pursuing real IMAP, build a standalone demo page instead. Built
+  `email-scanner/addin/src/demo/` (new webpack entry `demo.html`) reusing the real task-pane
+  logic with zero Office.js — an Outlook-lookalike shell fed directly from the 30 synthetic
+  emails. Added `backend/scripts/cache-demo-results.ts` to pre-compute real scan results (live
+  Thor) into `scan-cache.json`, consumed by the demo for instant + Thor-outage-proof scans.
+  Iterated per feedback: inspected real Outlook's fonts/row metrics live via Claude in Chrome;
+  sponsor emails reordered to inbox top; all emails renamed to greet "Somya Gupta" (the event
+  host) instead of a generic name (cache recomputed after, since offsets shift with name
+  length); emoji icons replaced with flat SVG icons; scanline/highlight animation made more
+  dramatic; added a "Check {company}'s real careers page" link using real, search-verified
+  URLs (not Abhiram's app, and not guessed). All checks green throughout.
