@@ -52,9 +52,12 @@ of the funnel, or the seam between them. Submissions due 4:30 PM; demos/judging 
 
 ## Next Steps
 
-1. **Email scanner:** hand the approved design spec to a fresh Claude instance to produce an
-   implementation plan and build it in `email-scanner/` (Node/TS + React add-in, Node/TS +
-   Express backend, Thor integration, synthetic-data seeding via IMAP APPEND).
+1. **Email scanner:** implementation plan written
+   ([docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md)),
+   awaiting Shrikar's go-ahead on the plan + three proposed data-model additions (see Open
+   Decisions). Then execute Tasks 1–15 in `email-scanner/`. **Shrikar action, can start now:**
+   try an Outlook.com app password for `slhj1208@outlook.com` IMAP (plan Task 14 Step 3) —
+   Outlook.com may reject basic-auth IMAP, in which case an Entra app registration is needed.
 2. **Job-posting verifier:** Abhiram (via `AbhiramAgentHandoff.md`) to brainstorm scope with his
    agent, get sign-off from Abhiram on a short design, then build in `job-posting-verifier/`.
 3. Keep this file, `CLAUDE.md`/`AGENTS.md`, and commits in sync as the single source of truth
@@ -70,6 +73,12 @@ of the funnel, or the seam between them. Submissions due 4:30 PM; demos/judging 
 - [ ] Whether/how the two components' UI should visually match for a unified demo (e.g. shared
       color/verdict language) — not yet discussed with Abhiram; flagged in
       `AbhiramAgentHandoff.md` as something to raise rather than assume.
+- [ ] **Email scanner data-model additions (proposed by Claude/email-scanner, not yet approved):**
+      (1) `field: "sender"|"subject"|"body"` on each flag/verified entry — the spec's offsets
+      only index the body, but the domain-mismatch/verified highlight sits on the sender address;
+      (2) `llm_status` + `llm_summary` on ScanResult so the pane can say "AI check unavailable"
+      and show the model's one-line impression; (3) LLM quotes that can't be located in the email
+      are dropped. Plan proceeds with these unless Shrikar overrules.
 - [ ] Whether to integrate with an existing ATS — likely N/A for either component as currently
       scoped (both are client-side/verification tools, not ATS-side), revisit if scope changes.
 
@@ -92,3 +101,10 @@ commits for detail.
   to `docs/superpowers/specs/2026-09-19-email-scanner-design.md`. Added `AbhiramAgentHandoff.md`
   covering both components. Verified `abhiramkandadi` already has write access to the repo.
   No implementation started yet on either component.
+- **2026-09-19** — Claude (email-scanner) read the approved spec and wrote the phased
+  implementation plan `docs/superpowers/plans/2026-09-19-email-scanner.md` (15 tasks: backend
+  rules TDD → Thor/Ollama client → Office add-in + sweep UI → synthetic data/calibration →
+  IMAP seeding → demo runbook). Environment checks: Thor reachable, Ollama 0.32.6,
+  `llama3:70b` resident (~22s cold / ~10s warm on a tiny prompt → 90s timeout, warm-up call,
+  looping scan line while waiting); local Ollama on the Mac is NOT running (fallback needs
+  `ollama serve` + model pulled). No code yet.
