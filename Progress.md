@@ -32,37 +32,46 @@ of the funnel, or the seam between them. Submissions due 4:30 PM; demos/judging 
 ## Current State
 
 - [2026-09-19] Repo initialized. Event brief extracted from Luma PDF into `docs/event-brief.md`.
-  No idea/architecture chosen yet.
-- [2026-09-19] Added root `AGENTS.md` with Codex instructions to fetch and read current
-  main-branch coordination files before every task and directly update this file after
-  each unit of work. Project direction and architecture remain undecided.
-- [2026-09-19] Standardized git identity: routine commits/pushes across all agents use the
-  `slhj1208` GitHub account (has write access to this `ShrikarSwami`-owned repo), documented
-  in `CLAUDE.md` and `AGENTS.md`.
-- [2026-09-19] Decided project direction: **Track B**. Two complementary components planned:
-  (1) an Outlook-UI-style email scanner (this team's build — highlights suspicious sender
-  domains, misspellings, and other impersonation signals red/green), and (2) a job-posting
-  verification tool from teammate Abhiram (checks postings claiming to be from a company
-  against that company's real published job list). Design for (1) is in progress
-  (brainstorming session); handoff doc for (2) pending as `AbhiramAgentHandoff.md`.
+- [2026-09-19] Added root `AGENTS.md` (Codex instructions) and standardized git identity:
+  routine commits/pushes across all agents use the `slhj1208` GitHub account. Collaborators on
+  the repo: `ShrikarSwami` (admin/owner), `slhj1208` (write), `abhiramkandadi` (write).
+- [2026-09-19] Decided project direction: **Track B**, two complementary components:
+  1. **Email trust scanner** (Shrikar's build) — real Outlook Office-JS add-in; hybrid
+     rules+LLM detection; design approved and written up in
+     [docs/superpowers/specs/2026-09-19-email-scanner-design.md](docs/superpowers/specs/2026-09-19-email-scanner-design.md).
+     Not yet implemented — next step is an implementation plan (writing-plans skill), to be
+     driven by a separate Claude instance (see that instance's own thread/session).
+  2. **Job-posting verification tool** (Abhiram's build) — checks postings claiming to be from
+     a company against that company's real published job list. No design yet; intentionally
+     left for Abhiram + his agent(s) to brainstorm and design themselves.
+- [2026-09-19] Added `AbhiramAgentHandoff.md`: onboarding doc for Abhiram's coding agent(s),
+  covering both components, his own idea verbatim, a synthetic-email JSON schema for seeding
+  the email scanner's test/demo mailbox (`slhj1208@outlook.com`, via IMAP APPEND — no real
+  internet impersonation of any company involved), and instructions to design his own component
+  the same way the email scanner was designed (brainstorm → short spec → build).
 
 ## Next Steps
 
-1. Decide which side of the challenge to attack (applicant-flood detection, impersonation/offer
-   verification, or both) — see "Open Decisions" below.
-2. Scaffold the chosen project structure once the idea is picked.
-3. Follow `CLAUDE.md` and the Codex instructions in `AGENTS.md`; keep this file and commits
-   in sync as the single source of truth across agents. Commit the new instructions and
-   this progress update together so other checkouts receive them.
+1. **Email scanner:** hand the approved design spec to a fresh Claude instance to produce an
+   implementation plan and build it in `email-scanner/` (Node/TS + React add-in, Node/TS +
+   Express backend, Thor integration, synthetic-data seeding via IMAP APPEND).
+2. **Job-posting verifier:** Abhiram (via `AbhiramAgentHandoff.md`) to brainstorm scope with his
+   agent, get sign-off from Abhiram on a short design, then build in `job-posting-verifier/`.
+3. Keep this file, `CLAUDE.md`/`AGENTS.md`, and commits in sync as the single source of truth
+   across all agents/sessions/humans working on this project.
 
 ## Open Decisions (need human input or team consensus)
 
 - [x] Which side of the funnel to target: **Track B — impersonation/offer-letter/recruiter
-      verification** (Side B in `docs/event-brief.md`). Decided 2026-09-19.
-- [ ] Tech stack for the Outlook-scan feature — under design as of 2026-09-19 (see brainstorming
-      session in chat / upcoming design doc under `docs/superpowers/specs/`).
-- [ ] Whether to integrate with an existing ATS — likely N/A for this angle (email-client-side
-      feature, not ATS-side), revisit if scope changes.
+      verification**. Decided 2026-09-19.
+- [x] Tech stack / architecture for the email scanner — see design spec linked above.
+      Decided 2026-09-19.
+- [ ] Scope/design for the job-posting verification tool — Abhiram's call, not yet made.
+- [ ] Whether/how the two components' UI should visually match for a unified demo (e.g. shared
+      color/verdict language) — not yet discussed with Abhiram; flagged in
+      `AbhiramAgentHandoff.md` as something to raise rather than assume.
+- [ ] Whether to integrate with an existing ATS — likely N/A for either component as currently
+      scoped (both are client-side/verification tools, not ATS-side), revisit if scope changes.
 
 ## Log
 
@@ -77,3 +86,9 @@ commits for detail.
 - **2026-09-19** — Claude (orchestrator) documented `slhj1208` as the standard git identity
   for commits/pushes in `CLAUDE.md` and `AGENTS.md`, and committed/pushed `AGENTS.md` plus
   this file under that account.
+- **2026-09-19** — Claude (orchestrator) ran a full brainstorming session with Shrikar for the
+  email scanner component (build target, detection approach, domain-list source, LLM/Thor
+  choice, verdict model, stack, repo layout, synthetic-data plan) and wrote the approved design
+  to `docs/superpowers/specs/2026-09-19-email-scanner-design.md`. Added `AbhiramAgentHandoff.md`
+  covering both components. Verified `abhiramkandadi` already has write access to the repo.
+  No implementation started yet on either component.
