@@ -53,6 +53,15 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
   internet impersonation of any company involved), and instructions to design his own component
   the same way the email scanner was designed (brainstorm → short spec → build).
 
+- [2026-09-19] **Job-posting verifier built** in `job-posting-verifier/` (Abhiram; Next.js App
+  Router + TS + Tailwind, Vercel target). Demo company: **Coinbase** (Greenhouse, 217 live roles);
+  Stripe + Airbnb snapshotted in `data/cache/` as fallbacks. `lib/ats/` (greenhouse/lever/ashby +
+  `resolveCompany`), `lib/match.ts` (conservative matcher), two-column UI at `/`, case file for red
+  postings. Left column reads `data/claimed-postings.json`; currently 4 **fabricated placeholders**
+  (source "Demo sample"). Abhiram is collecting the real scraped postings. Design was settled by
+  Abhiram directly (brainstorm phase skipped by his instruction); real scraped postings are the
+  core, fabricated data is a labelled supplement only (overrides the handoff doc).
+
 ## Next Steps
 
 1. **Email scanner:** Tasks 1–5 done (backend scaffold, shared types, env config;
@@ -63,8 +72,9 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
    **Shrikar action, can start now:** try an Outlook.com app password for
    `slhj1208@outlook.com` IMAP (plan Task 14 Step 3) — Outlook.com may reject basic-auth IMAP,
    in which case an Entra app registration is needed.
-2. **Job-posting verifier:** Abhiram (via `AbhiramAgentHandoff.md`) to brainstorm scope with his
-   agent, get sign-off from Abhiram on a short design, then build in `job-posting-verifier/`.
+2. **Job-posting verifier:** Abhiram to drop real scraped postings into
+   `job-posting-verifier/data/claimed-postings.json` (schema in that file; `origin: "real"`),
+   then tune matcher thresholds (`lib/match.ts`) against them, deploy to Vercel, polish demo.
 3. Keep this file, `CLAUDE.md`/`AGENTS.md`, and commits in sync as the single source of truth
    across all agents/sessions/humans working on this project.
 
@@ -74,7 +84,7 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
       verification**. Decided 2026-09-19.
 - [x] Tech stack / architecture for the email scanner — see design spec linked above.
       Decided 2026-09-19.
-- [ ] Scope/design for the job-posting verification tool — Abhiram's call, not yet made.
+- [x] Scope/design for the job-posting verification tool — decided by Abhiram 2026-09-19 (see Log).
 - [ ] Whether/how the two components' UI should visually match for a unified demo (e.g. shared
       color/verdict language) — not yet discussed with Abhiram; flagged in
       `AbhiramAgentHandoff.md` as something to raise rather than assume.
@@ -134,3 +144,12 @@ commits for detail.
 - **2026-09-19** — Claude (email-scanner) Task 5: added `src/verdict.ts` (`computeVerdict`, 
   `sortFlags`) — verdict tiers (Legitimate/Suspicious/Likely Scam) and flag ordering (sender → 
   subject → body, then span_start); 27/27 tests passing (4 new), `tsc --noEmit` clean.
+- **2026-09-19** — Claude (Abhiram's session, job-posting-verifier) validated Greenhouse tokens
+  (stripe 666, discord 46, airbnb 168, coinbase 217, robinhood 155, figma 152, databricks 878
+  roles; doordash 404), Abhiram picked Coinbase. Built ATS adapters (plain `/jobs` list only;
+  content fetched via single-job endpoint when a case file opens), matcher (self-test: 0/217 real
+  Coinbase roles mis-verified; `no_such_req` only if no title similarity >= 0.55), UI, case file,
+  placeholder claimed postings. UI provenance is a uniform dim `via {source}` line on every card
+  (no origin badge/colour; demo entries use source "Demo sample"; `origin` kept in the JSON schema
+  for filtering only). Per Abhiram's explicit instruction, this component's commits are pushed
+  under his own account `abhiramkandadi` (not `slhj1208` as CLAUDE.md says) — Shrikar FYI.

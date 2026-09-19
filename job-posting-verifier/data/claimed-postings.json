@@ -1,0 +1,46 @@
+[
+  {
+    "id": "placeholder-001",
+    "claimed_company": "Coinbase",
+    "title": "Credit Risk Analyst",
+    "location": "Remote - USA",
+    "source": "PLACEHOLDER (not a real finding)",
+    "source_url": "https://example.com/placeholder/001",
+    "contact_domain": "coinbase.com",
+    "collected_at": "2026-09-19T00:00:00Z",
+    "origin": "fabricated"
+  },
+  {
+    "id": "placeholder-002",
+    "claimed_company": "Coinbase",
+    "title": "Senior Credit Risk Analyst",
+    "location": "Remote, US",
+    "source": "PLACEHOLDER (not a real finding)",
+    "source_url": "https://example.com/placeholder/002",
+    "contact_domain": "coinbase.com",
+    "collected_at": "2026-09-19T00:00:00Z",
+    "origin": "fabricated"
+  },
+  {
+    "id": "placeholder-003",
+    "claimed_company": "Coinbase",
+    "title": "Crypto Support Associate (Work From Home, $85/hr)",
+    "location": "Remote",
+    "source": "PLACEHOLDER (not a real finding)",
+    "source_url": "https://example.com/placeholder/003",
+    "contact_domain": "gmail.com",
+    "collected_at": "2026-09-19T00:00:00Z",
+    "origin": "fabricated"
+  },
+  {
+    "id": "placeholder-004",
+    "claimed_company": "Coinbase",
+    "title": "Blockchain Payments Coordinator",
+    "location": "Remote - USA",
+    "source": "PLACEHOLDER (not a real finding)",
+    "source_url": "https://example.com/placeholder/004",
+    "contact_domain": "coinbase-careers.co",
+    "collected_at": "2026-09-19T00:00:00Z",
+    "origin": "fabricated"
+  }
+]
