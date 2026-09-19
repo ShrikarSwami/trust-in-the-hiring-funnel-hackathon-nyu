@@ -54,8 +54,8 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
      demo if Thor is unreachable. Tasks 9–15 of the implementation plan (Office add-in,
      synthetic data, IMAP seeding, demo runbook) still to come.
   2. **Job-posting verification tool** (Abhiram's build) — checks postings claiming to be from
-     a company against that company's real published job list. No design yet; intentionally
-     left for Abhiram + his agent(s) to brainstorm and design themselves.
+     a company against that company's real published job list. Designed and built — see the
+     "Job-posting verifier built" entry below.
 - [2026-09-19] Added `AbhiramAgentHandoff.md`: onboarding doc for Abhiram's coding agent(s),
   covering both components, his own idea verbatim, a synthetic-email JSON schema for seeding
   the email scanner's test/demo mailbox (`slhj1208@outlook.com`, via IMAP APPEND — no real
@@ -63,13 +63,17 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
   the same way the email scanner was designed (brainstorm → short spec → build).
 
 - [2026-09-19] **Job-posting verifier built** in `job-posting-verifier/` (Abhiram; Next.js App
-  Router + TS + Tailwind, Vercel target). Demo company: **Coinbase** (Greenhouse, 217 live roles);
+  Router + TS + Tailwind; **demoed on localhost, no Vercel deploy**). Demo company: **Coinbase** (Greenhouse, 217 live roles);
   Stripe + Airbnb snapshotted in `data/cache/` as fallbacks. `lib/ats/` (greenhouse/lever/ashby +
   `resolveCompany`), `lib/match.ts` (conservative matcher), two-column UI at `/`, case file for red
   postings. Left column reads `data/claimed-postings.json`; currently 4 **fabricated placeholders**
   (source "Demo sample"). Abhiram is collecting the real scraped postings. Design was settled by
   Abhiram directly (brainstorm phase skipped by his instruction); real scraped postings are the
-  core, fabricated data is a labelled supplement only (overrides the handoff doc).
+  core, fabricated data is a labelled supplement only (overrides the handoff doc). Demo path:
+  `cd job-posting-verifier && npm run build && npm start` -> http://localhost:3000 (verified
+  serving: 217 live Coinbase roles, 4 placeholder postings -> verified/verified/no_such_req x2).
+  Pushed to `origin/main` under `abhiramkandadi` per Abhiram's instruction (CLAUDE.md says
+  `slhj1208` — **Shrikar please note**).
 
 ## Next Steps
 
@@ -88,7 +92,9 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
    in which case an Entra app registration is needed.
 2. **Job-posting verifier:** Abhiram to drop real scraped postings into
    `job-posting-verifier/data/claimed-postings.json` (schema in that file; `origin: "real"`),
-   then tune matcher thresholds (`lib/match.ts`) against them, deploy to Vercel, polish demo.
+   then tune matcher thresholds (`lib/match.ts`) against them (re-run `scripts/selftest.mts`, check no
+   real posting comes back `no_such_req`), polish demo. No deploy — localhost only. **Waiting on
+   Abhiram's real claimed postings.**
 3. Keep this file, `CLAUDE.md`/`AGENTS.md`, and commits in sync as the single source of truth
    across all agents/sessions/humans working on this project.
 
@@ -195,3 +201,11 @@ commits for detail.
   against Thor via `npm start`: health `reachable: true, modelPresent: true`; scan of a fake
   Tesla/Gmail email → `"Likely Scam"`, `domain_mismatch` + `misspelling` on "detials" + two
   `llm_*` flags, `llm_status: "ok"`, ~22s; server stopped cleanly after. Backend now complete.
+- **2026-09-19** — Claude (Abhiram's session, job-posting-verifier) later work: removed the
+  origin badge/striped styling/case-file warning (uniform `via {source}` line; demo entries
+  source "Demo sample"); rebased onto Shrikar's email-scanner commits (only Progress.md
+  conflicted, both sides kept) and pushed to `origin/main` as `abhiramkandadi` at Abhiram's
+  explicit direction (**deviates from CLAUDE.md's `slhj1208` rule — left here for Shrikar**).
+  Vercel deploy attempted then cancelled by Abhiram (localhost demo); no deploy artifacts/config
+  exist. Verified `npm run build && npm start` serves on port 3000. Waiting on Abhiram's real
+  `data/claimed-postings.json`.
