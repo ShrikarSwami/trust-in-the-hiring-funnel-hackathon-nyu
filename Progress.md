@@ -59,8 +59,13 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
      `office-addin-manifest validate`). Dev certs installed. Verified with both servers running:
      `https://localhost:3000/taskpane.html` serves HTML and `https://localhost:3000/api/health`
      proxies through to the backend's real JSON. Sideload into Outlook on the web NOT attempted
-     (needs Shrikar's sign-in) — steps in Next Steps below. Tasks 10–15 of the implementation
-     plan (sweep UI, synthetic data, IMAP seeding, demo runbook) still to come.
+     (needs Shrikar's sign-in) — steps in Next Steps below. **Task 10 done:** pure highlight
+     segment builder for the task pane — `src/taskpane/types.ts` (verbatim copy of backend
+     types), `src/taskpane/lib/segments.ts` (`marksFor`, `buildSegments`, tiling overlap
+     resolution: hard > soft > verified, later mark clipped), TDD with vitest (added as
+     devDependency, `npm run test:unit`); 5/5 tests passing, `tsc --noEmit` and `webpack --mode
+     development` both clean. Tasks 11–15 of the implementation plan (sweep UI wiring, synthetic
+     data, IMAP seeding, demo runbook) still to come.
   2. **Job-posting verification tool** (Abhiram's build) — checks postings claiming to be from
      a company against that company's real published job list. Designed and built — see the
      "Job-posting verifier built" entry below.
@@ -86,7 +91,8 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 ## Next Steps
 
 1. **Email scanner:** Backend complete (Tasks 1–8); Task 9 (Outlook add-in scaffold + `/api`
-   proxy + manifest rename) also done — see Current State. Continue executing Tasks 10–15 of
+   proxy + manifest rename) and Task 10 (highlight segment builder, `src/taskpane/lib/segments.ts`)
+   also done — see Current State. Continue executing Tasks 11–15 of
    [docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md).
    **Demo-readiness gap:** local Ollama fallback (`localhost:11434`) is not running — before
    the demo, run `ollama serve` and `ollama pull qwen2.5vl:7b` on the Mac so the
@@ -241,3 +247,8 @@ commits for detail.
 - **2026-09-19** — Claude (email-scanner): added `operatorTasks.md` — Shrikar-only steps for
   (1) sideloading the Trust Scanner add-in into Outlook on the web and (2) testing an
   Outlook.com app password for IMAP seeding (openssl LOGIN test; report "IMAP OK/failed").
+- **2026-09-19** — Claude (email-scanner) Task 10: added `src/taskpane/types.ts` (verbatim
+  copy of backend types) and `src/taskpane/lib/segments.ts` (`marksFor`, `buildSegments` —
+  pure highlight segment builder, tiles text exactly, resolves overlaps hard > soft > verified
+  with later marks clipped); TDD with vitest (new devDependency, `test:unit` script); 5/5 tests
+  passing, `tsc --noEmit` and dev webpack build both clean.
