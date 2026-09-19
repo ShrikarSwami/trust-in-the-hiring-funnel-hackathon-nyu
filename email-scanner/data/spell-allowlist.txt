@@ -39,3 +39,8 @@ sign-on
 telegram
 whatsapp
 monday
+anonymize
+anonymized
+anonymizes
+anonymizing
+anonymization
