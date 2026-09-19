@@ -60,6 +60,20 @@ export function locateSpan(haystack: string, quote: string): { start: number; en
   return { start: h.map[idx], end: h.map[idx + nq.length - 1] + 1 };
 }
 
+const DEFAULT_REASON: Record<LlmFinding["category"], string> = {
+  tone: "Pressure, urgency, or unprofessional wording common in recruiting scams.",
+  plausibility: "A claim or request a real employer would not make at this stage.",
+};
+
+function explanatoryReason(reason: string, category: LlmFinding["category"]): string {
+  const trimmed = reason.trim();
+  const isEmpty = trimmed.length === 0;
+  const echoesCategory = trimmed.toLowerCase() === category.toLowerCase();
+  const tooShort = trimmed.split(/\s+/).filter(Boolean).length < 3;
+  if (isEmpty || echoesCategory || tooShort) return DEFAULT_REASON[category];
+  return reason;
+}
+
 export function findingsToFlags(req: ScanRequest, findings: LlmFinding[]): Flag[] {
   const flags: Flag[] = [];
   for (const f of findings) {
@@ -71,7 +85,14 @@ export function findingsToFlags(req: ScanRequest, findings: LlmFinding[]): Flag[
       console.warn(`[llm] dropping unlocatable finding: ${JSON.stringify(f.quoted_span)}`);
       continue;
     }
-    flags.push({ type, severity: "soft", field: inBody ? "body" : "subject", span_start: loc.start, span_end: loc.end, reason: f.reason });
+    flags.push({
+      type,
+      severity: "soft",
+      field: inBody ? "body" : "subject",
+      span_start: loc.start,
+      span_end: loc.end,
+      reason: explanatoryReason(f.reason, f.category),
+    });
   }
   return flags;
 }

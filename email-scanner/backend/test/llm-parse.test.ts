@@ -51,4 +51,24 @@ describe("findingsToFlags", () => {
     expect(flags[0]).toMatchObject({ type: "llm_plausibility", severity: "soft", field: "body", span_start: 0, span_end: 22 });
     expect(flags[1]).toMatchObject({ type: "llm_tone", field: "subject" });
   });
+
+  it("replaces a reason that just echoes the category, is empty, or is too short with a default explanation", () => {
+    const flags = findingsToFlags(req, [
+      { quoted_span: "Send your bank details", reason: "plausibility", category: "plausibility" },
+      { quoted_span: "offer expires today", reason: "  Tone  ", category: "tone" },
+      { quoted_span: "Send your bank details", reason: "", category: "plausibility" },
+      { quoted_span: "offer expires today", reason: "urgent", category: "tone" },
+    ]);
+    expect(flags[0].reason).toBe("A claim or request a real employer would not make at this stage.");
+    expect(flags[1].reason).toBe("Pressure, urgency, or unprofessional wording common in recruiting scams.");
+    expect(flags[2].reason).toBe("A claim or request a real employer would not make at this stage.");
+    expect(flags[3].reason).toBe("Pressure, urgency, or unprofessional wording common in recruiting scams.");
+  });
+
+  it("keeps a genuine explanatory reason unchanged", () => {
+    const flags = findingsToFlags(req, [
+      { quoted_span: "Send your bank details", reason: "Real employers do not ask for bank details before an offer.", category: "plausibility" },
+    ]);
+    expect(flags[0].reason).toBe("Real employers do not ask for bank details before an offer.");
+  });
 });

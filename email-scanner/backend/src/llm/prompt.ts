@@ -12,6 +12,7 @@ Rules:
 - quoted_span MUST be copied verbatim from the email subject or body: 3 to 15 words, no paraphrasing.
 - category "tone" = pressure, urgency, manipulative or unprofessional wording.
 - category "plausibility" = claims or requests a real employer would not make.
+- reason: one short sentence (8-20 words) explaining why the phrase is suspicious, never just the category name.
 - The sender address is checked separately; do not comment on it or on spelling.
 - A normal, professional recruiter email must get an EMPTY findings list. Scheduling an interview,
   describing benefits, or asking for a resume is normal.
@@ -27,10 +28,17 @@ export const RESPONSE_SCHEMA = {
         type: "object",
         properties: {
           quoted_span: { type: "string" },
-          reason: { type: "string" },
-          category: { type: "string", enum: ["tone", "plausibility"] },
+          category: {
+            type: "string",
+            enum: ["tone", "plausibility"],
+            description: "\"tone\" = pressure, urgency, manipulative or unprofessional wording. \"plausibility\" = claims or requests a real employer would not make.",
+          },
+          reason: {
+            type: "string",
+            description: "One sentence explaining why this phrase is a scam warning sign",
+          },
         },
-        required: ["quoted_span", "reason", "category"],
+        required: ["quoted_span", "category", "reason"],
       },
     },
     overall: { type: "string" },

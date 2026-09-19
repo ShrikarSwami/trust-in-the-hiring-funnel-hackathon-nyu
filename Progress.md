@@ -173,3 +173,12 @@ commits for detail.
   --noEmit` clean. Live smoke test against Thor (`llama3:70b`) succeeded: `status: "ok"`,
   4 flags (3 body-located, 1 subject-located), 27.9s elapsed. Local Ollama fallback
   (`localhost:11434`) confirmed still down — demo-readiness gap recorded above.
+- **2026-09-19** — Claude (email-scanner) Task 7 fix round 1: LLM flag `reason` was echoing the
+  category name instead of an explanation (found via Task 7's own smoke test, confirmed by
+  review). Fixed in `src/llm/prompt.ts` (reordered `RESPONSE_SCHEMA` item properties to
+  quoted_span/category/reason, added `description`s, added a SYSTEM_PROMPT rule for an
+  8-20-word explanatory reason) and `src/llm/parse.ts` (`findingsToFlags` now replaces an
+  empty/category-echoing/<3-word reason with a category default); 44/44 tests passing (2 new
+  in `test/llm-parse.test.ts`), `tsc --noEmit` clean. Re-ran live smoke against Thor: `status:
+  "ok"`, 31.3s, reasons now real sentences (e.g. "Legitimate employers typically conduct
+  interviews before making job offers.").
