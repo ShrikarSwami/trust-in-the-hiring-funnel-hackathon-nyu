@@ -53,12 +53,12 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 
 ## Next Steps
 
-1. **Email scanner:** implementation plan written
-   ([docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md)),
-   awaiting Shrikar's go-ahead on the plan + three proposed data-model additions (see Open
-   Decisions). Then execute Tasks 1–15 in `email-scanner/`. **Shrikar action, can start now:**
-   try an Outlook.com app password for `slhj1208@outlook.com` IMAP (plan Task 14 Step 3) —
-   Outlook.com may reject basic-auth IMAP, in which case an Entra app registration is needed.
+1. **Email scanner:** Task 1 (backend scaffold, shared types, env config) done in
+   `email-scanner/backend`. Continue executing Tasks 2–15 of
+   [docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md).
+   **Shrikar action, can start now:** try an Outlook.com app password for
+   `slhj1208@outlook.com` IMAP (plan Task 14 Step 3) — Outlook.com may reject basic-auth IMAP,
+   in which case an Entra app registration is needed.
 2. **Job-posting verifier:** Abhiram (via `AbhiramAgentHandoff.md`) to brainstorm scope with his
    agent, get sign-off from Abhiram on a short design, then build in `job-posting-verifier/`.
 3. Keep this file, `CLAUDE.md`/`AGENTS.md`, and commits in sync as the single source of truth
@@ -108,4 +108,10 @@ commits for detail.
   IMAP seeding → demo runbook). Environment checks: Thor reachable, Ollama 0.32.6,
   `llama3:70b` resident (~22s cold / ~10s warm on a tiny prompt → 90s timeout, warm-up call,
   looping scan line while waiting); local Ollama on the Mac is NOT running (fallback needs
-  `ollama serve` + model pulled). No code yet.
+  `ollama serve` + model pulled). Task 1 (backend scaffold) done: `email-scanner/backend`
+  package created with TS/vitest tooling, shared `types.ts` (ScanRequest/Flag/Verified/
+  ScanResult/senderLine), and `config.ts` (`loadConfig`) reading Thor/Ollama + IMAP env vars;
+  4/4 tests passing, `tsc --noEmit` clean. Tasks 2–15 still to come.
+- **2026-09-19** — Claude (email-scanner) Task 1: scaffolded `email-scanner/backend` (package.json,
+  tsconfig, vitest config, .env.example, .gitignore), added `src/types.ts` and `src/config.ts`;
+  4/4 tests passing.
