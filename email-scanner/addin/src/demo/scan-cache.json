@@ -1,0 +1,948 @@
+{
+  "legit-001": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 23,
+        "span_end": 47,
+        "note": "Sender domain matches Acme Robotics's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a legitimate and professional job recruitment message.",
+    "checked_at": "2026-09-19T19:09:37.180Z"
+  },
+  "legit-002": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 18,
+        "span_end": 50,
+        "note": "Sender domain matches Brightline Analytics's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a legitimate interview scheduling message from a recruiter.",
+    "checked_at": "2026-09-19T19:09:43.230Z"
+  },
+  "legit-003": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 32,
+        "span_end": 59,
+        "note": "Sender domain matches Northwind Health's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a legitimate and professional response from a recruiter.",
+    "checked_at": "2026-09-19T19:09:49.280Z"
+  },
+  "legit-004": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 19,
+        "span_end": 43,
+        "note": "Sender domain matches Acme Robotics's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be from a legitimate recruiter.",
+    "checked_at": "2026-09-19T19:09:54.676Z"
+  },
+  "legit-005": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 24,
+        "span_end": 56,
+        "note": "Sender domain matches Brightline Analytics's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a legitimate recruiting email.",
+    "checked_at": "2026-09-19T19:10:00.028Z"
+  },
+  "legit-006": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 20,
+        "span_end": 29,
+        "note": "Sender domain matches Tesla's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be from a legitimate recruiter.",
+    "checked_at": "2026-09-19T19:10:05.487Z"
+  },
+  "scam-001": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 26,
+        "span_end": 35,
+        "reason": "Claims to be from Tesla, but was sent from gmail.com (a personal email provider). Real Tesla email comes from tesla.com."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 139,
+        "span_end": 225,
+        "reason": "Unlikely that a candidate would be selected without an interview or formal application process."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 381,
+        "span_end": 407,
+        "reason": "Creates a false sense of urgency."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 386,
+        "span_end": 454,
+        "reason": "A legitimate employer would not rescind an offer based on a short deadline."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 411,
+        "span_end": 454,
+        "reason": "Uses manipulative language to prompt action."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a recruiting scam due to its urgent tone and unrealistic hiring process.",
+    "checked_at": "2026-09-19T19:10:43.290Z"
+  },
+  "scam-002": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 23,
+        "span_end": 48,
+        "reason": "Claims to be from Amazon, but was sent from amazon-careers-portal.net (a domain the company does not use). Real Amazon email comes from amazon.com, amazon.jobs."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 0,
+        "span_end": 18,
+        "reason": "Lack of personalization, using a generic greeting format."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 425,
+        "span_end": 453,
+        "reason": "Employers typically provide equipment without charging employees."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 803,
+        "span_end": 832,
+        "reason": "Creates a sense of urgency and pressure to act quickly."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a scam, as it requests payment from the job seeker for equipment and creates a sense of urgency.",
+    "checked_at": "2026-09-19T19:11:08.804Z"
+  },
+  "scam-003": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 44,
+        "span_end": 55,
+        "reason": "Claims to be from Acme Robotics, but was sent from outlook.com (a personal email provider). Real Acme Robotics email comes from acmerobotics.example.com."
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 90,
+        "span_end": 99,
+        "reason": "Possible misspelling: \"sucessful\" (did you mean \"successful\"?)"
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 270,
+        "span_end": 281,
+        "reason": "Possible misspelling: \"oppertunity\" (did you mean \"opportunity\"?)"
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 386,
+        "span_end": 444,
+        "reason": "Unusual to start training before formal hiring process is complete."
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 454,
+        "span_end": 461,
+        "reason": "Possible misspelling: \"recieve\" (did you mean \"receive\"?)"
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 560,
+        "span_end": 568,
+        "reason": "Possible misspelling: \"benifits\" (did you mean \"benefits\"?)"
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 675,
+        "span_end": 715,
+        "reason": "Creates a sense of urgency without a clear reason."
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 864,
+        "span_end": 871,
+        "reason": "Possible misspelling: \"recieve\" (did you mean \"receive\"?)"
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "The email appears suspicious due to the tone and unusual hiring process.",
+    "checked_at": "2026-09-19T19:11:32.115Z"
+  },
+  "scam-004": {
+    "verdict": "Suspicious",
+    "flags": [
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "subject",
+        "span_start": 0,
+        "span_end": 27,
+        "reason": "Creates a sense of urgency to prompt hasty action."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 478,
+        "span_end": 496,
+        "reason": "Uses pressure tactics to rush the job seeker into a decision."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 532,
+        "span_end": 563,
+        "reason": "Imposes an unrealistic deadline for response."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 690,
+        "span_end": 739,
+        "reason": "Unusual restriction on providing information to candidates."
+      }
+    ],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 26,
+        "span_end": 58,
+        "note": "Sender domain matches Brightline Analytics's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "The email creates a sense of urgency and uses pressure tactics, which is uncommon in professional recruitment processes.",
+    "checked_at": "2026-09-19T19:12:01.716Z"
+  },
+  "scam-005": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 44,
+        "span_end": 53,
+        "reason": "Claims to be from Google, but was sent from gmail.com (a personal email provider). Real Google email comes from google.com."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "subject",
+        "span_start": 0,
+        "span_end": 49,
+        "reason": "Requesting sensitive information before an interview is unusual."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 423,
+        "span_end": 545,
+        "reason": "Legitimate employers do not request sensitive personal data via email."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 547,
+        "span_end": 621,
+        "reason": "Creating a sense of urgency to disclose sensitive information is manipulative."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a phishing scam attempting to obtain sensitive personal data.",
+    "checked_at": "2026-09-19T19:12:29.615Z"
+  },
+  "scam-006": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 22,
+        "span_end": 44,
+        "reason": "Claims to be from Deloitte, but was sent from deloitte-recruiting.co (a domain the company does not use). Real Deloitte email comes from deloitte.com."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 423,
+        "span_end": 475,
+        "reason": "Real employers typically conduct interviews via video calls or in-person meetings."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 734,
+        "span_end": 787,
+        "reason": "Unrealistic promise of a rapid job offer without a formal process."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "Suspicious email due to unusual interview process and rushed hiring timeline.",
+    "checked_at": "2026-09-19T19:12:48.736Z"
+  },
+  "scam-007": {
+    "verdict": "Suspicious",
+    "flags": [
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 187,
+        "span_end": 212,
+        "reason": "Unrealistic lack of requirements for a high-paying job."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 277,
+        "span_end": 328,
+        "reason": "Creates a sense of urgency without a formal hiring process."
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 333,
+        "span_end": 340,
+        "reason": "Possible misspelling: \"beleive\" (did you mean \"believe\"?)"
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 361,
+        "span_end": 395,
+        "reason": "Manipulative language to entice the job seeker."
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 463,
+        "span_end": 469,
+        "reason": "Possible misspelling: \"reveiw\" (did you mean \"review\"?)"
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 642,
+        "span_end": 651,
+        "reason": "Possible misspelling: \"intersted\" (did you mean \"interested\"?)"
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 819,
+        "span_end": 830,
+        "reason": "Possible misspelling: \"oppertunity\" (did you mean \"opportunity\"?)"
+      }
+    ],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 24,
+        "span_end": 51,
+        "note": "Sender domain matches Northwind Health's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email has multiple red flags suggesting a recruiting scam.",
+    "checked_at": "2026-09-19T19:13:19.113Z"
+  },
+  "scam-008": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 37,
+        "span_end": 48,
+        "reason": "Claims to be from JPMorgan Chase, but was sent from hotmail.com (a personal email provider). Real JPMorgan Chase email comes from jpmorgan.com, jpmchase.com, chase.com."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 454,
+        "span_end": 470,
+        "reason": "Employers do not typically send checks to new hires for equipment purchases."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 472,
+        "span_end": 514,
+        "reason": "Legitimate employers do not ask new hires to use personal funds for business expenses."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 778,
+        "span_end": 804,
+        "reason": "Employers typically do not need banking information from new hires."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a scam, as it requests unusual and potentially fraudulent financial transactions.",
+    "checked_at": "2026-09-19T19:13:47.409Z"
+  },
+  "scam-009": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 27,
+        "span_end": 37,
+        "reason": "Claims to be from Stripe, but was sent from str1pe.com (a domain the company does not use). Real Stripe email comes from stripe.com."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a legitimate follow-up from a recruiter.",
+    "checked_at": "2026-09-19T19:13:53.058Z"
+  },
+  "scam-010": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 33,
+        "span_end": 42,
+        "reason": "Claims to be from Microsoft, but was sent from gmail.com (a personal email provider). Real Microsoft email comes from microsoft.com."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 446,
+        "span_end": 492,
+        "reason": "Creates a sense of urgency to prompt payment."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 451,
+        "span_end": 481,
+        "reason": "Legitimate employers do not ask candidates to pay for training or certifications."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 496,
+        "span_end": 513,
+        "reason": "Uses pressure tactics to rush the job seeker into a decision."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 625,
+        "span_end": 666,
+        "reason": "Unusual reimbursement terms, may be a way to justify the upfront payment."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 836,
+        "span_end": 867,
+        "reason": "Creates a sense of scarcity and pressure to make a payment."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "This email has all the hallmarks of a recruiting scam, with urgent language and requests for payment.",
+    "checked_at": "2026-09-19T19:14:29.823Z"
+  },
+  "legit-007": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 21,
+        "span_end": 34,
+        "note": "Sender domain matches Solari's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be from a legitimate recruiter.",
+    "checked_at": "2026-09-19T19:14:36.759Z"
+  },
+  "legit-008": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 23,
+        "span_end": 38,
+        "note": "Sender domain matches Block Convey's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a legitimate job recruitment email.",
+    "checked_at": "2026-09-19T19:14:41.918Z"
+  },
+  "legit-009": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 27,
+        "span_end": 41,
+        "note": "Sender domain matches Visionbrew's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be from a legitimate recruiter.",
+    "checked_at": "2026-09-19T19:14:46.886Z"
+  },
+  "legit-010": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 21,
+        "span_end": 43,
+        "note": "Sender domain matches Integral Recruiting's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be from a legitimate recruiter.",
+    "checked_at": "2026-09-19T19:14:51.923Z"
+  },
+  "legit-011": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 21,
+        "span_end": 38,
+        "note": "Sender domain matches localhost:nyc's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a legitimate follow-up from a networking event.",
+    "checked_at": "2026-09-19T19:14:57.548Z"
+  },
+  "legit-012": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 27,
+        "span_end": 34,
+        "note": "Sender domain matches NYU's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a legitimate job opportunity from a university recruiter.",
+    "checked_at": "2026-09-19T19:15:03.232Z"
+  },
+  "legit-013": {
+    "verdict": "Legitimate",
+    "flags": [],
+    "verified": [
+      {
+        "field": "sender",
+        "span_start": 26,
+        "span_end": 34,
+        "note": "Sender domain matches Meta's official domain."
+      }
+    ],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be from a legitimate recruiter.",
+    "checked_at": "2026-09-19T19:15:08.116Z"
+  },
+  "scam-011": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 34,
+        "span_end": 43,
+        "reason": "Claims to be from Solari, but was sent from gmail.com (a personal email provider). Real Solari email comes from getsolari.com."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 123,
+        "span_end": 184,
+        "reason": "Unusual hiring process with no personal interaction."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 251,
+        "span_end": 337,
+        "reason": "Raises concerns about equipment purchases or shipments before formal hiring."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 386,
+        "span_end": 417,
+        "reason": "Creates a sense of urgency to prompt hasty decisions."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 421,
+        "span_end": 490,
+        "reason": "Uses scarcity tactics to create pressure."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a recruiting scam due to its urgent tone, unusual hiring process, and requests for personal information.",
+    "checked_at": "2026-09-19T19:15:42.223Z"
+  },
+  "scam-012": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 30,
+        "span_end": 54,
+        "reason": "Claims to be from Block Convey, but was sent from block-convey-careers.net (a domain the company does not use). Real Block Convey email comes from blockconvey.com."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 401,
+        "span_end": 436,
+        "reason": "Employers typically do not ask new hires to pay for equipment."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 571,
+        "span_end": 623,
+        "reason": "The language creates a sense of urgency and pressure."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "This email appears to be a recruiting scam, as it requests payment from the job seeker.",
+    "checked_at": "2026-09-19T19:16:01.949Z"
+  },
+  "scam-013": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 45,
+        "span_end": 56,
+        "reason": "Claims to be from Visionbrew, but was sent from outlook.com (a personal email provider). Real Visionbrew email comes from visionbrew.app."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 230,
+        "span_end": 255,
+        "reason": "Creates a sense of urgency without a valid reason."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "The email appears to be a legitimate recruiting message, but the tone is slightly pushy.",
+    "checked_at": "2026-09-19T19:16:14.633Z"
+  },
+  "scam-014": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 33,
+        "span_end": 42,
+        "reason": "Claims to be from NYU, but was sent from yahoo.com (a personal email provider). Real NYU email comes from nyu.edu."
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "subject",
+        "span_start": 11,
+        "span_end": 22,
+        "reason": "Possible misspelling: \"oppertunity\" (did you mean \"opportunity\"?)"
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 209,
+        "span_end": 217,
+        "reason": "Possible misspelling: \"reserach\" (did you mean \"research\"?)"
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 350,
+        "span_end": 383,
+        "reason": "Requesting sensitive personal information without proper authentication."
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 435,
+        "span_end": 445,
+        "reason": "Possible misspelling: \"eligiblity\" (did you mean \"eligibility\"?)"
+      },
+      {
+        "type": "misspelling",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 548,
+        "span_end": 559,
+        "reason": "Possible misspelling: \"appretiated\" (did you mean \"appreciated\"?)"
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 548,
+        "span_end": 559,
+        "reason": "Unprofessional spelling mistake in a formal email."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "Suspicious email due to unusual request for personal information and unprofessional tone.",
+    "checked_at": "2026-09-19T19:16:31.892Z"
+  },
+  "scam-015": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 34,
+        "span_end": 43,
+        "reason": "Claims to be from Netflix, but was sent from gmail.com (a personal email provider). Real Netflix email comes from netflix.com."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 140,
+        "span_end": 156,
+        "reason": "Unrealistic hourly pay for reviewing short video clips."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 205,
+        "span_end": 239,
+        "reason": "Lack of necessary qualifications for a content review role."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 504,
+        "span_end": 521,
+        "reason": "Request for equipment details before formal hiring process."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "Suspicious email with unrealistic pay and unusual requests.",
+    "checked_at": "2026-09-19T19:16:53.710Z"
+  },
+  "scam-016": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 41,
+        "span_end": 50,
+        "reason": "Claims to be from Apple, but was sent from gmail.com (a personal email provider). Real Apple email comes from apple.com."
+      },
+      {
+        "type": "llm_plausibility",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 268,
+        "span_end": 304,
+        "reason": "Legitimate employers do not ask for money upfront."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 388,
+        "span_end": 401,
+        "reason": "Creates a sense of urgency to prompt hasty action."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "This email is likely a scam, as it requests payment from the job seeker.",
+    "checked_at": "2026-09-19T19:17:12.233Z"
+  },
+  "scam-017": {
+    "verdict": "Likely Scam",
+    "flags": [
+      {
+        "type": "domain_mismatch",
+        "severity": "hard",
+        "field": "sender",
+        "span_start": 42,
+        "span_end": 51,
+        "reason": "Claims to be from localhost:nyc, but was sent from gmail.com (a personal email provider). Real localhost:nyc email comes from localhost-nyc.com."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 268,
+        "span_end": 308,
+        "reason": "Imposes an unrealistic deadline, creating pressure on the recipient."
+      },
+      {
+        "type": "llm_tone",
+        "severity": "soft",
+        "field": "body",
+        "span_start": 320,
+        "span_end": 345,
+        "reason": "Creates a sense of urgency to prompt hasty action."
+      }
+    ],
+    "verified": [],
+    "llm_status": "ok",
+    "llm_summary": "The email creates a sense of urgency and may be trying to rush the recipient into making a decision.",
+    "checked_at": "2026-09-19T19:17:30.261Z"
+  }
+}

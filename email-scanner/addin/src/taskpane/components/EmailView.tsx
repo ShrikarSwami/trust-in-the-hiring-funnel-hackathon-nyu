@@ -2,7 +2,7 @@ import * as React from "react";
 import { buildSegments, marksFor, type Mark } from "../lib/segments";
 import { senderLine, type Field, type ScanRequest, type ScanResult } from "../types";
 
-function Highlighted({ text, marks }: { text: string; marks: Mark[] }) {
+export function Highlighted({ text, marks }: { text: string; marks: Mark[] }) {
   return <>{buildSegments(text, marks).map((s) => s.mark ? (
     <mark key={s.start} id={s.mark.id} data-mark className={`hl ${s.mark.kind === "verified" ? "hl-ok" : `hl-${s.mark.severity}`}`} title={s.mark.reason}>{s.text}</mark>
   ) : <React.Fragment key={s.start}>{s.text}</React.Fragment>)}</>;

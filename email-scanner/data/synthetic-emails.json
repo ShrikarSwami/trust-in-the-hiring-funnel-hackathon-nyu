@@ -1,122 +1,354 @@
 [
   {
-    "id": "legit-001", "label": "legit", "sender_name": "Priya Shah", "sender_email": "priya.shah@acmerobotics.example.com", "claimed_company": "Acme Robotics", "subject": "Phone screen for the Robotics Engineer role", "injected_flaws": [],
-    "body": "Hello Jordan,\n\nThank you for your interest in the Robotics Engineer role at Acme Robotics. I reviewed your application with the hiring team, and we would like to arrange a 30-minute phone screen. The conversation will cover your recent projects, what interests you about the position, and the team's work on warehouse automation. There is no preparation exercise for this first conversation.\n\nCould you share two or three times that work for you next week? I am available Tuesday through Thursday, and I can send a calendar invitation once we agree on a time. You can review the position and our interview process on the Acme Robotics careers page before we speak: https://acmerobotics.example.com/careers. Please reply if you need an accommodation or have any questions about the role.\n\nBest,\nPriya Shah\nTalent Acquisition, Acme Robotics"
+    "id": "legit-001",
+    "label": "legit",
+    "sender_name": "Priya Shah",
+    "sender_email": "priya.shah@acmerobotics.example.com",
+    "claimed_company": "Acme Robotics",
+    "subject": "Phone screen for the Robotics Engineer role",
+    "injected_flaws": [],
+    "body": "Hello Somya,\n\nThank you for your interest in the Robotics Engineer role at Acme Robotics. I reviewed your application with the hiring team, and we would like to arrange a 30-minute phone screen. The conversation will cover your recent projects, what interests you about the position, and the team's work on warehouse automation. There is no preparation exercise for this first conversation.\n\nCould you share two or three times that work for you next week? I am available Tuesday through Thursday, and I can send a calendar invitation once we agree on a time. You can review the position and our interview process on the Acme Robotics careers page before we speak: https://acmerobotics.example.com/careers. Please reply if you need an accommodation or have any questions about the role.\n\nBest,\nPriya Shah\nTalent Acquisition, Acme Robotics"
   },
   {
-    "id": "legit-002", "label": "legit", "sender_name": "Marcus Lee", "sender_email": "m.lee@brightline-analytics.example.com", "claimed_company": "Brightline Analytics", "subject": "Details for your onsite interview", "injected_flaws": [],
-    "body": "Hi Jordan,\n\nWe look forward to meeting you for your onsite interview at Brightline Analytics next Wednesday. Your schedule begins at 10:00 a.m. with the engineering manager, followed by a discussion with two members of the analytics team and a short break. The conversations will focus on your prior work and how you approach collaborative projects. You do not need to bring a laptop or prepare a presentation.\n\nOur office is at 18 River Street in Brooklyn. Please check in at the front desk when you arrive; the receptionist will print a visitor badge and call me. A photo ID is needed for building access, but please do not email a copy in advance. If your travel plans change, reply here and I will help adjust the schedule. We can also arrange an accommodation if one would make the visit easier.\n\nRegards,\nMarcus Lee\nRecruiting, Brightline Analytics"
+    "id": "legit-002",
+    "label": "legit",
+    "sender_name": "Marcus Lee",
+    "sender_email": "m.lee@brightline-analytics.example.com",
+    "claimed_company": "Brightline Analytics",
+    "subject": "Details for your onsite interview",
+    "injected_flaws": [],
+    "body": "Hi Somya Gupta,\n\nWe look forward to meeting you for your onsite interview at Brightline Analytics next Wednesday. Your schedule begins at 10:00 a.m. with the engineering manager, followed by a discussion with two members of the analytics team and a short break. The conversations will focus on your prior work and how you approach collaborative projects. You do not need to bring a laptop or prepare a presentation.\n\nOur office is at 18 River Street in Brooklyn. Please check in at the front desk when you arrive; the receptionist will print a visitor badge and call me. A photo ID is needed for building access, but please do not email a copy in advance. If your travel plans change, reply here and I will help adjust the schedule. We can also arrange an accommodation if one would make the visit easier.\n\nRegards,\nMarcus Lee\nRecruiting, Brightline Analytics"
   },
   {
-    "id": "legit-003", "label": "legit", "sender_name": "Northwind Health Talent", "sender_email": "talent@northwindhealth.example.com", "claimed_company": "Northwind Health", "subject": "We received your application", "injected_flaws": [],
-    "body": "Hello Jordan,\n\nThis message confirms that Northwind Health received your application for the Care Operations Analyst position. Thank you for taking the time to tell us about your experience. Our recruiting team is reviewing applications with the department manager, and we expect to share an update within one to two weeks. Every applicant will receive a response once that initial review is complete.\n\nFor now, there is no further action required. If we decide to move forward, a member of our team will contact you from a Northwind Health email address to arrange a conversation about the position. You can continue to review the role description and our workplace information on the Northwind Health careers page. If you applied to several openings, please keep the role title in your reply so we can locate the right application.\n\nThank you again for your interest.\n\nNorthwind Health Talent Team"
+    "id": "legit-003",
+    "label": "legit",
+    "sender_name": "Northwind Health Talent",
+    "sender_email": "talent@northwindhealth.example.com",
+    "claimed_company": "Northwind Health",
+    "subject": "We received your application",
+    "injected_flaws": [],
+    "body": "Hello Mr. Gupta,\n\nThis message confirms that Northwind Health received your application for the Care Operations Analyst position. Thank you for taking the time to tell us about your experience. Our recruiting team is reviewing applications with the department manager, and we expect to share an update within one to two weeks. Every applicant will receive a response once that initial review is complete.\n\nFor now, there is no further action required. If we decide to move forward, a member of our team will contact you from a Northwind Health email address to arrange a conversation about the position. You can continue to review the role description and our workplace information on the Northwind Health careers page. If you applied to several openings, please keep the role title in your reply so we can locate the right application.\n\nThank you again for your interest.\n\nNorthwind Health Talent Team"
   },
   {
-    "id": "legit-004", "label": "legit", "sender_name": "Dana Ortiz", "sender_email": "dortiz@acmerobotics.example.com", "claimed_company": "Acme Robotics", "subject": "Your formal Acme Robotics offer", "injected_flaws": [],
-    "body": "Hi Jordan,\n\nFollowing your interviews and our call yesterday, I am pleased to share the formal offer for the Robotics Engineer position at Acme Robotics. The attached letter describes the title, salary, benefits, proposed start date, and the conditions we discussed. Please read it carefully and let me know if any detail needs clarification before you decide. You have until next Friday to respond, and we can discuss an extension if you need more time.\n\nIf you accept, please sign through the Acme Robotics HR portal at https://acmerobotics.example.com/hr. Our team will then explain the background check through that same official portal. You do not need to send identification documents by email. I am available for a call to walk through the benefits package or answer questions about the team. Congratulations again, and thank you for the thoughtful conversations throughout the process.\n\nBest,\nDana Ortiz\nAcme Robotics People Team"
+    "id": "legit-004",
+    "label": "legit",
+    "sender_name": "Dana Ortiz",
+    "sender_email": "dortiz@acmerobotics.example.com",
+    "claimed_company": "Acme Robotics",
+    "subject": "Your formal Acme Robotics offer",
+    "injected_flaws": [],
+    "body": "Hi Somya,\n\nFollowing your interviews and our call yesterday, I am pleased to share the formal offer for the Robotics Engineer position at Acme Robotics. The attached letter describes the title, salary, benefits, proposed start date, and the conditions we discussed. Please read it carefully and let me know if any detail needs clarification before you decide. You have until next Friday to respond, and we can discuss an extension if you need more time.\n\nIf you accept, please sign through the Acme Robotics HR portal at https://acmerobotics.example.com/hr. Our team will then explain the background check through that same official portal. You do not need to send identification documents by email. I am available for a call to walk through the benefits package or answer questions about the team. Congratulations again, and thank you for the thoughtful conversations throughout the process.\n\nBest,\nDana Ortiz\nAcme Robotics People Team"
   },
   {
-    "id": "legit-005", "label": "legit", "sender_name": "Ken Watanabe", "sender_email": "kwatanabe@brightline-analytics.example.com", "claimed_company": "Brightline Analytics", "subject": "Take-home assessment details", "injected_flaws": [],
-    "body": "Hi Jordan,\n\nThank you for speaking with our team about the Data Analyst role at Brightline Analytics. As discussed, the next step is a small take-home assessment based on an anonymized sample data set. It is designed to show how you explain your choices, not to produce work for a client. The instructions and data are attached, and most candidates spend about two hours on it.\n\nPlease send your response within five days, by the end of next Tuesday. If that schedule conflicts with work or other commitments, let me know and we can choose another date. You may use any familiar analysis tools and include brief notes about assumptions or limitations. After the team reviews your submission, we will invite you to discuss your approach. Questions about the assignment are welcome, and asking for clarification will not count against you.\n\nRegards,\nKen Watanabe\nBrightline Analytics Recruiting"
+    "id": "legit-005",
+    "label": "legit",
+    "sender_name": "Ken Watanabe",
+    "sender_email": "kwatanabe@brightline-analytics.example.com",
+    "claimed_company": "Brightline Analytics",
+    "subject": "Take-home assessment details",
+    "injected_flaws": [],
+    "body": "Hi Somya Gupta,\n\nThank you for speaking with our team about the Data Analyst role at Brightline Analytics. As discussed, the next step is a small take-home assessment based on an anonymized sample data set. It is designed to show how you explain your choices, not to produce work for a client. The instructions and data are attached, and most candidates spend about two hours on it.\n\nPlease send your response within five days, by the end of next Tuesday. If that schedule conflicts with work or other commitments, let me know and we can choose another date. You may use any familiar analysis tools and include brief notes about assumptions or limitations. After the team reviews your submission, we will invite you to discuss your approach. Questions about the assignment are welcome, and asking for clarification will not count against you.\n\nRegards,\nKen Watanabe\nBrightline Analytics Recruiting"
   },
   {
-    "id": "legit-006", "label": "legit", "sender_name": "Aisha Bello", "sender_email": "abello@tesla.com", "claimed_company": "Tesla", "subject": "Introduction: manufacturing engineering opportunity at Tesla", "injected_flaws": [],
-    "body": "Hello Jordan,\n\nI am a recruiter with Tesla and came across your manufacturing engineering experience through your public professional profile. Our team is hiring for a role focused on improving production processes and collaborating with technicians on the factory floor. Your background in process improvement may be relevant, although I would first like to learn more about the kind of work you hope to do next.\n\nIf you are open to a conversation, could you suggest a convenient time for a brief introductory call next week? I can share the job description, location, interview stages, and compensation range during that call. There is no obligation to apply, and I understand if the timing is not right. If you prefer, you can also review current openings through the careers section of tesla.com and tell me which positions interest you. Please reply with any accessibility needs for a call.\n\nBest regards,\nAisha Bello\nTesla Recruiting"
+    "id": "legit-006",
+    "label": "legit",
+    "sender_name": "Aisha Bello",
+    "sender_email": "abello@tesla.com",
+    "claimed_company": "Tesla",
+    "subject": "Introduction: manufacturing engineering opportunity at Tesla",
+    "injected_flaws": [],
+    "body": "Hello Mr. Gupta,\n\nI am a recruiter with Tesla and came across your manufacturing engineering experience through your public professional profile. Our team is hiring for a role focused on improving production processes and collaborating with technicians on the factory floor. Your background in process improvement may be relevant, although I would first like to learn more about the kind of work you hope to do next.\n\nIf you are open to a conversation, could you suggest a convenient time for a brief introductory call next week? I can share the job description, location, interview stages, and compensation range during that call. There is no obligation to apply, and I understand if the timing is not right. If you prefer, you can also review current openings through the careers section of tesla.com and tell me which positions interest you. Please reply with any accessibility needs for a call.\n\nBest regards,\nAisha Bello\nTesla Recruiting"
   },
   {
-    "id": "scam-001", "label": "scam", "sender_name": "John Pork", "sender_email": "johnpork.tesla@gmail.com", "claimed_company": "Tesla", "subject": "Tesla remote position selected for you", "injected_flaws": ["domain_mismatch", "urgency_pressure"],
-    "body": "Hello Jordan,\n\nI am contacting you from the Tesla recruitment desk about a remote operations position. Your online profile has already been selected by our hiring committee, and we can move you directly to the onboarding stage. The work involves reviewing routine production reports from home, with flexible hours and training provided. We are filling the last openings now, so you must reply within 24 hours or we will give your slot to another applicant.\n\nSend your preferred phone number and confirm that you can start this week. Once we receive your response, a coordinator will explain the short orientation call and next steps. Please do not spend time applying through the public careers site, because this invitation is reserved for selected candidates. We would like to make a decision immediately and cannot keep the position open after tomorrow.\n\nRegards,\nJohn Pork\nTesla Hiring Desk"
+    "id": "scam-001",
+    "label": "scam",
+    "sender_name": "John Pork",
+    "sender_email": "johnpork.tesla@gmail.com",
+    "claimed_company": "Tesla",
+    "subject": "Tesla remote position selected for you",
+    "injected_flaws": [
+      "domain_mismatch",
+      "urgency_pressure"
+    ],
+    "body": "Hello Somya,\n\nI am contacting you from the Tesla recruitment desk about a remote operations position. Your online profile has already been selected by our hiring committee, and we can move you directly to the onboarding stage. The work involves reviewing routine production reports from home, with flexible hours and training provided. We are filling the last openings now, so you must reply within 24 hours or we will give your slot to another applicant.\n\nSend your preferred phone number and confirm that you can start this week. Once we receive your response, a coordinator will explain the short orientation call and next steps. Please do not spend time applying through the public careers site, because this invitation is reserved for selected candidates. We would like to make a decision immediately and cannot keep the position open after tomorrow.\n\nRegards,\nJohn Pork\nTesla Hiring Desk"
   },
   {
-    "id": "scam-002", "label": "scam", "sender_name": "Amazon Hiring Team", "sender_email": "hr@amazon-careers-portal.net", "claimed_company": "Amazon", "subject": "Equipment deposit for your Amazon position", "injected_flaws": ["domain_mismatch", "financial_request"],
-    "body": "Hello Jordan,\n\nCongratulations on being chosen for a remote support position with Amazon. We have reviewed your basic information and are ready to prepare your equipment package. The role can begin as soon as the package arrives, and an orientation representative will explain your daily schedule. Your first shipment includes a laptop, headset, and security token configured for our systems.\n\nBefore shipment, you must pay a $150 equipment deposit using the payment instructions we send after you reply. The deposit will be refunded with your first paycheck, so it is only a temporary hold. This payment is required of every new remote employee and cannot be deducted from payroll in advance. Once you provide a receipt, we will reserve the package in your name and send a tracking number. Please reply today with confirmation that you can make the deposit.\n\nAmazon Hiring Team"
+    "id": "scam-002",
+    "label": "scam",
+    "sender_name": "Amazon Hiring Team",
+    "sender_email": "hr@amazon-careers-portal.net",
+    "claimed_company": "Amazon",
+    "subject": "Equipment deposit for your Amazon position",
+    "injected_flaws": [
+      "domain_mismatch",
+      "financial_request"
+    ],
+    "body": "Hello Somya Gupta,\n\nCongratulations on being chosen for a remote support position with Amazon. We have reviewed your basic information and are ready to prepare your equipment package. The role can begin as soon as the package arrives, and an orientation representative will explain your daily schedule. Your first shipment includes a laptop, headset, and security token configured for our systems.\n\nBefore shipment, you must pay a $150 equipment deposit using the payment instructions we send after you reply. The deposit will be refunded with your first paycheck, so it is only a temporary hold. This payment is required of every new remote employee and cannot be deducted from payroll in advance. Once you provide a receipt, we will reserve the package in your name and send a tracking number. Please reply today with confirmation that you can make the deposit.\n\nAmazon Hiring Team"
   },
   {
-    "id": "scam-003", "label": "scam", "sender_name": "Sarah Kim - Acme Robotics", "sender_email": "acme.robotics.hr@outlook.com", "claimed_company": "Acme Robotics", "subject": "Offer letter for your Acme Robotics role", "injected_flaws": ["domain_mismatch", "misspelling"],
-    "body": "Hello Jordan,\n\nWe are pleased to inform you that your application to Acme Robotics was sucessful. The team believes you would be a strong addition to our operations group, and we would like to discuss a formal offer for the open coordinator position. This is a great oppertunity to work with a growing company while learning from experienced colleagues. The schedule is flexible and training can begin shortly after you confirm your interest.\n\nPlease recieve the offer summary attached to this message and review the proposed start date, working hours, and benifits. If anything in the document is unclear, you may reply to this message and we will answer your questions. We expect to complete the paperwork soon, so please return the signed page when you are ready. We look forward to working with you and will send more information about orientation after we recieve your response.\n\nSarah Kim\nAcme Robotics Recruitment"
+    "id": "scam-003",
+    "label": "scam",
+    "sender_name": "Sarah Kim - Acme Robotics",
+    "sender_email": "acme.robotics.hr@outlook.com",
+    "claimed_company": "Acme Robotics",
+    "subject": "Offer letter for your Acme Robotics role",
+    "injected_flaws": [
+      "domain_mismatch",
+      "misspelling"
+    ],
+    "body": "Hello Mr. Gupta,\n\nWe are pleased to inform you that your application to Acme Robotics was sucessful. The team believes you would be a strong addition to our operations group, and we would like to discuss a formal offer for the open coordinator position. This is a great oppertunity to work with a growing company while learning from experienced colleagues. The schedule is flexible and training can begin shortly after you confirm your interest.\n\nPlease recieve the offer summary attached to this message and review the proposed start date, working hours, and benifits. If anything in the document is unclear, you may reply to this message and we will answer your questions. We expect to complete the paperwork soon, so please return the signed page when you are ready. We look forward to working with you and will send more information about orientation after we recieve your response.\n\nSarah Kim\nAcme Robotics Recruitment"
   },
   {
-    "id": "scam-004", "label": "scam", "sender_name": "Recruitment Desk", "sender_email": "careers@brightline-analytics.example.com", "claimed_company": "Brightline Analytics", "subject": "Immediate response required for analyst opening", "injected_flaws": ["urgency_pressure", "generic_greeting"],
+    "id": "scam-004",
+    "label": "scam",
+    "sender_name": "Recruitment Desk",
+    "sender_email": "careers@brightline-analytics.example.com",
+    "claimed_company": "Brightline Analytics",
+    "subject": "Immediate response required for analyst opening",
+    "injected_flaws": [
+      "urgency_pressure",
+      "generic_greeting"
+    ],
     "body": "Dear Applicant,\n\nYour profile has been shortlisted for an analyst opening at Brightline Analytics. We are contacting several candidates in this final round and need a quick response from anyone who wishes to remain under consideration. This opportunity is moving faster than our usual recruiting timeline because the team has an immediate staffing need. The position includes regular work with reporting and client data, and details will be shared with candidates who respond.\n\nYou must act today to keep your place in the process. Reply before the end of the day with a confirmation that you accept the next interview slot; otherwise we will close your application without further notice. We cannot extend the deadline or answer questions before you confirm. After your response, someone from our recruitment desk will send the time and location. We hope you will move promptly so that we can proceed.\n\nRecruitment Desk\nBrightline Analytics"
   },
   {
-    "id": "scam-005", "label": "scam", "sender_name": "Google Talent Acquisition", "sender_email": "talent.google.hr@gmail.com", "claimed_company": "Google", "subject": "Payroll verification before your Google interview", "injected_flaws": ["domain_mismatch", "generic_greeting", "personal_info_request"],
+    "id": "scam-005",
+    "label": "scam",
+    "sender_name": "Google Talent Acquisition",
+    "sender_email": "talent.google.hr@gmail.com",
+    "claimed_company": "Google",
+    "subject": "Payroll verification before your Google interview",
+    "injected_flaws": [
+      "domain_mismatch",
+      "generic_greeting",
+      "personal_info_request"
+    ],
     "body": "Dear Applicant,\n\nThank you for your interest in a position with Google. Our talent team has moved your profile into the interview queue, and we are checking candidate records before the first conversation. This preliminary step helps us prepare payroll details so that a successful candidate can begin promptly. You do not need to visit an office or speak with a hiring manager before completing this verification.\n\nPlease reply with your full Social Security number, date of birth, home address, and a photograph of your identification document. We need your SSN and DOB for payroll before the interview can be scheduled. Send these details directly in your email reply so our coordinator can match the information to your application. Once received, we will provide an interview time and describe the role in more detail. We appreciate your cooperation with this required administrative step.\n\nGoogle Talent Acquisition"
   },
   {
-    "id": "scam-006", "label": "scam", "sender_name": "Michael Grant", "sender_email": "mgrant@deloitte-recruiting.co", "claimed_company": "Deloitte", "subject": "Deloitte consulting interview invitation", "injected_flaws": ["domain_mismatch", "chat_interview"],
-    "body": "Hi Jordan,\n\nI am reaching out about a consulting position with Deloitte. Your profile appears to match the experience our team is seeking, and we would like to move you into the interview stage. The project would involve supporting business clients, preparing recommendations, and working with a small remote team. We can discuss the expected schedule and location once the interview is complete.\n\nFor convenience, your interview will take place only through Telegram chat. Please install Telegram, search for the hiring coordinator using the handle we provide, and send a message that includes your name and the role title. There will be no video call or telephone conversation. The coordinator will ask written questions and can issue an offer through the chat immediately afterward. Reply here when you are ready so I can send the contact details. We look forward to hearing from you.\n\nMichael Grant\nDeloitte Recruiting"
+    "id": "scam-006",
+    "label": "scam",
+    "sender_name": "Michael Grant",
+    "sender_email": "mgrant@deloitte-recruiting.co",
+    "claimed_company": "Deloitte",
+    "subject": "Deloitte consulting interview invitation",
+    "injected_flaws": [
+      "domain_mismatch",
+      "chat_interview"
+    ],
+    "body": "Hi Mr. Gupta,\n\nI am reaching out about a consulting position with Deloitte. Your profile appears to match the experience our team is seeking, and we would like to move you into the interview stage. The project would involve supporting business clients, preparing recommendations, and working with a small remote team. We can discuss the expected schedule and location once the interview is complete.\n\nFor convenience, your interview will take place only through Telegram chat. Please install Telegram, search for the hiring coordinator using the handle we provide, and send a message that includes your name and the role title. There will be no video call or telephone conversation. The coordinator will ask written questions and can issue an offer through the chat immediately afterward. Reply here when you are ready so I can send the contact details. We look forward to hearing from you.\n\nMichael Grant\nDeloitte Recruiting"
   },
   {
-    "id": "scam-007", "label": "scam", "sender_name": "Northwind Health HR", "sender_email": "hr@northwindhealth.example.com", "claimed_company": "Northwind Health", "subject": "Flexible health coordinator opening", "injected_flaws": ["misspelling", "unrealistic_offer"],
-    "body": "Hello Jordan,\n\nNorthwind Health is expanding a remote coordinator program and would like to invite you to join the team. The position pays $60 per hour for 10 hours of work each week, and no experience is required. You can choose your own schedule, work entirely from home, and begin as soon as the enrollment process is complete. We beleive this role offers an unusually easy way to build income while helping our administrative team.\n\nYour main task would be to reveiw short status reports and pass simple updates to a supervisor. We provide a brief orientation, so previous healthcare or office experience is not needed. Candidates who are intersted should reply with their availability and preferred start date. A coordinator will follow up with instructions about the next stage. We hope you consider this flexible oppertunity and look forward to your response.\n\nNorthwind Health HR"
+    "id": "scam-007",
+    "label": "scam",
+    "sender_name": "Northwind Health HR",
+    "sender_email": "hr@northwindhealth.example.com",
+    "claimed_company": "Northwind Health",
+    "subject": "Flexible health coordinator opening",
+    "injected_flaws": [
+      "misspelling",
+      "unrealistic_offer"
+    ],
+    "body": "Hello Somya,\n\nNorthwind Health is expanding a remote coordinator program and would like to invite you to join the team. The position pays $60 per hour for 10 hours of work each week, and no experience is required. You can choose your own schedule, work entirely from home, and begin as soon as the enrollment process is complete. We beleive this role offers an unusually easy way to build income while helping our administrative team.\n\nYour main task would be to reveiw short status reports and pass simple updates to a supervisor. We provide a brief orientation, so previous healthcare or office experience is not needed. Candidates who are intersted should reply with their availability and preferred start date. A coordinator will follow up with instructions about the next stage. We hope you consider this flexible oppertunity and look forward to your response.\n\nNorthwind Health HR"
   },
   {
-    "id": "scam-008", "label": "scam", "sender_name": "JPMorgan Chase Careers", "sender_email": "jpmc.careers@hotmail.com", "claimed_company": "JPMorgan Chase", "subject": "Equipment purchase for your new position", "injected_flaws": ["domain_mismatch", "check_fraud"],
-    "body": "Hello Jordan,\n\nThe JPMorgan Chase Careers team has reviewed your application for the remote administrative associate role. We are preparing a workstation package so that you can begin training from home. Your supervisor will provide the onboarding schedule after your equipment is ready. The company covers all authorized supplies, including a computer, monitor, and office materials, through a special reimbursement process for new hires.\n\nWe will mail you a check. Deposit it into your personal bank account and use the funds to buy equipment from our approved vendor. The vendor will send an invoice after you contact them, and any remaining balance can be returned once the purchases are complete. Please confirm the mailing address where you can receive the check and tell us which bank you use so that we can estimate processing time. We can move ahead as soon as the deposit clears.\n\nJPMorgan Chase Careers"
+    "id": "scam-008",
+    "label": "scam",
+    "sender_name": "JPMorgan Chase Careers",
+    "sender_email": "jpmc.careers@hotmail.com",
+    "claimed_company": "JPMorgan Chase",
+    "subject": "Equipment purchase for your new position",
+    "injected_flaws": [
+      "domain_mismatch",
+      "check_fraud"
+    ],
+    "body": "Hello Somya Gupta,\n\nThe JPMorgan Chase Careers team has reviewed your application for the remote administrative associate role. We are preparing a workstation package so that you can begin training from home. Your supervisor will provide the onboarding schedule after your equipment is ready. The company covers all authorized supplies, including a computer, monitor, and office materials, through a special reimbursement process for new hires.\n\nWe will mail you a check. Deposit it into your personal bank account and use the funds to buy equipment from our approved vendor. The vendor will send an invoice after you contact them, and any remaining balance can be returned once the purchases are complete. Please confirm the mailing address where you can receive the check and tell us which bank you use so that we can estimate processing time. We can move ahead as soon as the deposit clears.\n\nJPMorgan Chase Careers"
   },
   {
-    "id": "scam-009", "label": "scam", "sender_name": "Stripe People Team", "sender_email": "people@str1pe.com", "claimed_company": "Stripe", "subject": "Follow-up on your Stripe application", "injected_flaws": ["domain_mismatch"],
-    "body": "Hi Jordan,\n\nThank you for the time you spent meeting our engineering colleagues about the software engineer position at Stripe. The team appreciated your discussion of reliable services and your examples of cross-functional work. We would like to continue the conversation about the role, the team's priorities, and what you would hope to accomplish in your first months. Your interview feedback has been positive, and we expect to make a final decision after the remaining conversations conclude.\n\nCould you share a few times next week for a follow-up call with the hiring manager? We can also arrange a conversation with a team member if you have additional questions about the work or the interview process. No documents are needed for this call. We will provide the full written terms and time to review them if an offer is made. Thanks again for your interest and your thoughtful preparation.\n\nBest,\nStripe People Team"
+    "id": "scam-009",
+    "label": "scam",
+    "sender_name": "Stripe People Team",
+    "sender_email": "people@str1pe.com",
+    "claimed_company": "Stripe",
+    "subject": "Follow-up on your Stripe application",
+    "injected_flaws": [
+      "domain_mismatch"
+    ],
+    "body": "Hi Mr. Gupta,\n\nThank you for the time you spent meeting our engineering colleagues about the software engineer position at Stripe. The team appreciated your discussion of reliable services and your examples of cross-functional work. We would like to continue the conversation about the role, the team's priorities, and what you would hope to accomplish in your first months. Your interview feedback has been positive, and we expect to make a final decision after the remaining conversations conclude.\n\nCould you share a few times next week for a follow-up call with the hiring manager? We can also arrange a conversation with a team member if you have additional questions about the work or the interview process. No documents are needed for this call. We will provide the full written terms and time to review them if an offer is made. Thanks again for your interest and your thoughtful preparation.\n\nBest,\nStripe People Team"
   },
   {
-    "id": "scam-010", "label": "scam", "sender_name": "Emily Chen", "sender_email": "emily.chen.microsoft@gmail.com", "claimed_company": "Microsoft", "subject": "Microsoft onboarding certification deadline", "injected_flaws": ["domain_mismatch", "urgency_pressure", "financial_request"],
-    "body": "Hi Jordan,\n\nI am contacting you about the Microsoft support role for which your profile was recently selected. The team is ready to place you in the next onboarding group, and we can reserve a seat if you complete the certification step immediately. This training is described as a standard requirement for all new members of the group, regardless of prior experience. You will receive the work schedule and manager details after enrollment.\n\nYou must pay for certification training by tonight or lose the position. The registration fee is $220 and must be sent using the payment link I provide in my next message. It will be reimbursed after your first month of work, but we cannot deduct it from a future paycheck. Please reply as soon as possible so I can send the link and mark your file as confirmed. We have very limited seats and cannot hold one without payment.\n\nEmily Chen\nMicrosoft Recruitment"
+    "id": "scam-010",
+    "label": "scam",
+    "sender_name": "Emily Chen",
+    "sender_email": "emily.chen.microsoft@gmail.com",
+    "claimed_company": "Microsoft",
+    "subject": "Microsoft onboarding certification deadline",
+    "injected_flaws": [
+      "domain_mismatch",
+      "urgency_pressure",
+      "financial_request"
+    ],
+    "body": "Hi Somya,\n\nI am contacting you about the Microsoft support role for which your profile was recently selected. The team is ready to place you in the next onboarding group, and we can reserve a seat if you complete the certification step immediately. This training is described as a standard requirement for all new members of the group, regardless of prior experience. You will receive the work schedule and manager details after enrollment.\n\nYou must pay for certification training by tonight or lose the position. The registration fee is $220 and must be sent using the payment link I provide in my next message. It will be reimbursed after your first month of work, but we cannot deduct it from a future paycheck. Please reply as soon as possible so I can send the link and mark your file as confirmed. We have very limited seats and cannot hold one without payment.\n\nEmily Chen\nMicrosoft Recruitment"
   },
   {
-    "id": "legit-007", "label": "legit", "sender_name": "Maya Chen", "sender_email": "maya.chen@getsolari.com", "claimed_company": "Solari", "subject": "Infrastructure engineer role at Solari", "injected_flaws": [],
-    "body": "Hello Jordan,\n\nI am a recruiter with Solari, and your background in distributed systems caught my attention. We build cloud infrastructure for AI agents, including browsers, sandboxes, and desktops available through a single API, and our infrastructure team is growing. The open role focuses on the sandbox runtime and would involve close collaboration with our SDK maintainers.\n\nIf you are open to a conversation, I would like to set up a 30-minute call to walk through the role and answer any questions. There is no take-home exercise before this first conversation. You are welcome to look at our current openings and product documentation at https://getsolari.com/careers beforehand, but it is not required. Let me know a few times that work for you this week or next, and please tell me if you need any accommodation for the call.\n\nBest,\nMaya Chen\nTalent Acquisition, Solari"
+    "id": "legit-007",
+    "label": "legit",
+    "sender_name": "Maya Chen",
+    "sender_email": "maya.chen@getsolari.com",
+    "claimed_company": "Solari",
+    "subject": "Infrastructure engineer role at Solari",
+    "injected_flaws": [],
+    "body": "Hello Somya Gupta,\n\nI am a recruiter with Solari, and your background in distributed systems caught my attention. We build cloud infrastructure for AI agents, including browsers, sandboxes, and desktops available through a single API, and our infrastructure team is growing. The open role focuses on the sandbox runtime and would involve close collaboration with our SDK maintainers.\n\nIf you are open to a conversation, I would like to set up a 30-minute call to walk through the role and answer any questions. There is no take-home exercise before this first conversation. You are welcome to look at our current openings and product documentation at https://getsolari.com/careers beforehand, but it is not required. Let me know a few times that work for you this week or next, and please tell me if you need any accommodation for the call.\n\nBest,\nMaya Chen\nTalent Acquisition, Solari"
   },
   {
-    "id": "legit-008", "label": "legit", "sender_name": "Owen Price", "sender_email": "owen.price@blockconvey.com", "claimed_company": "Block Convey", "subject": "Phone screen for the AI Reliability Engineer opening", "injected_flaws": [],
-    "body": "Hi Jordan,\n\nThank you for applying to the AI Reliability Engineer role at Block Convey. I reviewed your application with our engineering lead, and we would like to schedule a 30-minute phone screen. We will ask about your experience with evaluating model behavior and observability tooling, and you are welcome to ask us about our PRISM platform and how the reliability team works with customers.\n\nCould you share two or three times that work for you over the next week? I can send a calendar invite once we settle on a time, and the call will be over Zoom. If anything about the process is unclear or you would like more detail on the role before we speak, feel free to reply here with questions.\n\nRegards,\nOwen Price\nRecruiting, Block Convey"
+    "id": "legit-008",
+    "label": "legit",
+    "sender_name": "Owen Price",
+    "sender_email": "owen.price@blockconvey.com",
+    "claimed_company": "Block Convey",
+    "subject": "Phone screen for the AI Reliability Engineer opening",
+    "injected_flaws": [],
+    "body": "Hi Mr. Gupta,\n\nThank you for applying to the AI Reliability Engineer role at Block Convey. I reviewed your application with our engineering lead, and we would like to schedule a 30-minute phone screen. We will ask about your experience with evaluating model behavior and observability tooling, and you are welcome to ask us about our PRISM platform and how the reliability team works with customers.\n\nCould you share two or three times that work for you over the next week? I can send a calendar invite once we settle on a time, and the call will be over Zoom. If anything about the process is unclear or you would like more detail on the role before we speak, feel free to reply here with questions.\n\nRegards,\nOwen Price\nRecruiting, Block Convey"
   },
   {
-    "id": "legit-009", "label": "legit", "sender_name": "Talia Brooks", "sender_email": "talia.brooks@visionbrew.app", "claimed_company": "Visionbrew", "subject": "Mobile engineer opportunity at Visionbrew", "injected_flaws": [],
-    "body": "Hello Jordan,\n\nI am a recruiter at Visionbrew, and I came across your mobile engineering experience through your public profile. We build an app where people chat with AI avatars, and we are looking for someone to help improve the avatar rendering and chat experience on iOS. I would like to learn more about what you are looking for in your next role before sharing specifics.\n\nWould you be open to a short introductory call sometime next week? There is no obligation to apply, and I am happy to share the job description, team structure, and compensation range on that call. If a call is not the right next step for you right now, no worries at all, and thank you for your time either way.\n\nBest,\nTalia Brooks\nVisionbrew Recruiting"
+    "id": "legit-009",
+    "label": "legit",
+    "sender_name": "Talia Brooks",
+    "sender_email": "talia.brooks@visionbrew.app",
+    "claimed_company": "Visionbrew",
+    "subject": "Mobile engineer opportunity at Visionbrew",
+    "injected_flaws": [],
+    "body": "Hello Somya,\n\nI am a recruiter at Visionbrew, and I came across your mobile engineering experience through your public profile. We build an app where people chat with AI avatars, and we are looking for someone to help improve the avatar rendering and chat experience on iOS. I would like to learn more about what you are looking for in your next role before sharing specifics.\n\nWould you be open to a short introductory call sometime next week? There is no obligation to apply, and I am happy to share the job description, team structure, and compensation range on that call. If a call is not the right next step for you right now, no worries at all, and thank you for your time either way.\n\nBest,\nTalia Brooks\nVisionbrew Recruiting"
   },
   {
-    "id": "legit-010", "label": "legit", "sender_name": "Grace Liu", "sender_email": "grace.liu@integralrecruiting.com", "claimed_company": "Integral Recruiting", "subject": "Next steps for the iCIMS System Administrator engagement", "injected_flaws": [],
-    "body": "Hi Jordan,\n\nThank you for speaking with our team about the iCIMS System Administrator engagement with Integral Recruiting. Based on our conversation, we would like to move forward with a technical discussion with one of our senior consultants, who will walk through a few real configuration scenarios from past client work. This is meant to be a conversation, not a graded test.\n\nPlease let us know your availability for the next week, and we will send a calendar invite with a video link. If you have questions about the engagement structure, client expectations, or timeline before that call, you are welcome to ask now or during the conversation.\n\nRegards,\nGrace Liu\nIntegral Recruiting"
+    "id": "legit-010",
+    "label": "legit",
+    "sender_name": "Grace Liu",
+    "sender_email": "grace.liu@integralrecruiting.com",
+    "claimed_company": "Integral Recruiting",
+    "subject": "Next steps for the iCIMS System Administrator engagement",
+    "injected_flaws": [],
+    "body": "Hi Somya Gupta,\n\nThank you for speaking with our team about the iCIMS System Administrator engagement with Integral Recruiting. Based on our conversation, we would like to move forward with a technical discussion with one of our senior consultants, who will walk through a few real configuration scenarios from past client work. This is meant to be a conversation, not a graded test.\n\nPlease let us know your availability for the next week, and we will send a calendar invite with a video link. If you have questions about the engagement structure, client expectations, or timeline before that call, you are welcome to ask now or during the conversation.\n\nRegards,\nGrace Liu\nIntegral Recruiting"
   },
   {
-    "id": "legit-011", "label": "legit", "sender_name": "Dev Patel", "sender_email": "dev.patel@localhost-nyc.com", "claimed_company": "localhost:nyc", "subject": "Following up after Trust in the Hiring Funnel Hackathon", "injected_flaws": [],
-    "body": "Hey Jordan,\n\nGreat meeting you at the Trust in the Hiring Funnel Hackathon this weekend. A few of us on the localhost:nyc team were impressed by your team's demo, and we wanted to follow up about our builder-in-residence program at the hacker house. It is a short, informal conversation, not a hiring process, since the program is more about community than employment.\n\nIf you are curious, reply with a good time for a quick call sometime in the next couple of weeks, and I can tell you more about what past residents have worked on. No pressure at all if this weekend was a one-off for you.\n\nBest,\nDev Patel\nlocalhost:nyc"
+    "id": "legit-011",
+    "label": "legit",
+    "sender_name": "Dev Patel",
+    "sender_email": "dev.patel@localhost-nyc.com",
+    "claimed_company": "localhost:nyc",
+    "subject": "Following up after Trust in the Hiring Funnel Hackathon",
+    "injected_flaws": [],
+    "body": "Hey Mr. Gupta,\n\nGreat meeting you at the Trust in the Hiring Funnel Hackathon this weekend. A few of us on the localhost:nyc team were impressed by your team's demo, and we wanted to follow up about our builder-in-residence program at the hacker house. It is a short, informal conversation, not a hiring process, since the program is more about community than employment.\n\nIf you are curious, reply with a good time for a quick call sometime in the next couple of weeks, and I can tell you more about what past residents have worked on. No pressure at all if this weekend was a one-off for you.\n\nBest,\nDev Patel\nlocalhost:nyc"
   },
   {
-    "id": "legit-012", "label": "legit", "sender_name": "Renee Okafor", "sender_email": "renee.okafor@nyu.edu", "claimed_company": "NYU", "subject": "Your application to the NYU Tandon research engineer role", "injected_flaws": [],
-    "body": "Hello Jordan,\n\nThank you for applying to the research engineer position with the NYU Tandon School of Engineering. The faculty lead has reviewed your application and would like to schedule a conversation about the project, which focuses on applied machine learning infrastructure for a research lab. This is a staff position, not a graduate program application, so there is no separate admissions process involved.\n\nPlease let me know your availability over the next two weeks, and I will coordinate a time with the faculty lead and one other team member. Feel free to ask any questions about the role, funding source, or start date before the call.\n\nBest,\nRenee Okafor\nNYU Tandon Human Resources"
+    "id": "legit-012",
+    "label": "legit",
+    "sender_name": "Renee Okafor",
+    "sender_email": "renee.okafor@nyu.edu",
+    "claimed_company": "NYU",
+    "subject": "Your application to the NYU Tandon research engineer role",
+    "injected_flaws": [],
+    "body": "Hello Somya,\n\nThank you for applying to the research engineer position with the NYU Tandon School of Engineering. The faculty lead has reviewed your application and would like to schedule a conversation about the project, which focuses on applied machine learning infrastructure for a research lab. This is a staff position, not a graduate program application, so there is no separate admissions process involved.\n\nPlease let me know your availability over the next two weeks, and I will coordinate a time with the faculty lead and one other team member. Feel free to ask any questions about the role, funding source, or start date before the call.\n\nBest,\nRenee Okafor\nNYU Tandon Human Resources"
   },
   {
-    "id": "legit-013", "label": "legit", "sender_name": "Chris Alvarado", "sender_email": "calvarado@meta.com", "claimed_company": "Meta", "subject": "Scheduling your offer discussion at Meta", "injected_flaws": [],
-    "body": "Hi Jordan,\n\nCongratulations again on completing the interview process for the software engineer role at Meta. I would like to schedule a call to walk through the formal offer together, including compensation, equity, and start date, and to answer any questions you have. The written offer letter will follow through our official offer portal after we speak.\n\nCould you share a few times over the next few days that work for you? I know this is a big decision, and I am happy to answer questions about the team or role again before you need to respond.\n\nBest,\nChris Alvarado\nMeta University and Early Career Recruiting"
+    "id": "legit-013",
+    "label": "legit",
+    "sender_name": "Chris Alvarado",
+    "sender_email": "calvarado@meta.com",
+    "claimed_company": "Meta",
+    "subject": "Scheduling your offer discussion at Meta",
+    "injected_flaws": [],
+    "body": "Hi Somya Gupta,\n\nCongratulations again on completing the interview process for the software engineer role at Meta. I would like to schedule a call to walk through the formal offer together, including compensation, equity, and start date, and to answer any questions you have. The written offer letter will follow through our official offer portal after we speak.\n\nCould you share a few times over the next few days that work for you? I know this is a big decision, and I am happy to answer questions about the team or role again before you need to respond.\n\nBest,\nChris Alvarado\nMeta University and Early Career Recruiting"
   },
   {
-    "id": "scam-011", "label": "scam", "sender_name": "Solari Talent Team", "sender_email": "solari.hiring@gmail.com", "claimed_company": "Solari", "subject": "You have been selected for a Solari remote role", "injected_flaws": ["domain_mismatch", "urgency_pressure"],
-    "body": "Hello Jordan,\n\nYour profile has been reviewed and selected for a remote infrastructure support role with Solari. We can move you directly into onboarding without a further interview, since our hiring committee has already approved your background. Training materials and a starter laptop will be shipped once you confirm your interest.\n\nWe are finalizing this round today, so please reply within the next few hours to hold your seat, or the offer will go to another candidate on our list. Send your preferred shipping address and a phone number so our onboarding coordinator can reach you immediately after you confirm.\n\nSolari Talent Team"
+    "id": "scam-011",
+    "label": "scam",
+    "sender_name": "Solari Talent Team",
+    "sender_email": "solari.hiring@gmail.com",
+    "claimed_company": "Solari",
+    "subject": "You have been selected for a Solari remote role",
+    "injected_flaws": [
+      "domain_mismatch",
+      "urgency_pressure"
+    ],
+    "body": "Hello Mr. Gupta,\n\nYour profile has been reviewed and selected for a remote infrastructure support role with Solari. We can move you directly into onboarding without a further interview, since our hiring committee has already approved your background. Training materials and a starter laptop will be shipped once you confirm your interest.\n\nWe are finalizing this round today, so please reply within the next few hours to hold your seat, or the offer will go to another candidate on our list. Send your preferred shipping address and a phone number so our onboarding coordinator can reach you immediately after you confirm.\n\nSolari Talent Team"
   },
   {
-    "id": "scam-012", "label": "scam", "sender_name": "Block Convey Careers", "sender_email": "careers@block-convey-careers.net", "claimed_company": "Block Convey", "subject": "Equipment setup for your Block Convey role", "injected_flaws": ["domain_mismatch", "financial_request"],
-    "body": "Hello Jordan,\n\nCongratulations on being selected for the AI Reliability Analyst position with Block Convey. Our operations team is preparing your remote workstation, which includes a laptop, monitor, and secure access token for our internal tools. Once the equipment ships, an onboarding specialist will schedule your first-week training.\n\nBefore we can ship the equipment, we ask new hires to cover a refundable handling deposit of $175 through the payment link we will send after your reply. This amount is returned automatically after thirty days of employment. Please confirm today so we can lock in your shipping window.\n\nBlock Convey Careers"
+    "id": "scam-012",
+    "label": "scam",
+    "sender_name": "Block Convey Careers",
+    "sender_email": "careers@block-convey-careers.net",
+    "claimed_company": "Block Convey",
+    "subject": "Equipment setup for your Block Convey role",
+    "injected_flaws": [
+      "domain_mismatch",
+      "financial_request"
+    ],
+    "body": "Hello Somya,\n\nCongratulations on being selected for the AI Reliability Analyst position with Block Convey. Our operations team is preparing your remote workstation, which includes a laptop, monitor, and secure access token for our internal tools. Once the equipment ships, an onboarding specialist will schedule your first-week training.\n\nBefore we can ship the equipment, we ask new hires to cover a refundable handling deposit of $175 through the payment link we will send after your reply. This amount is returned automatically after thirty days of employment. Please confirm today so we can lock in your shipping window.\n\nBlock Convey Careers"
   },
   {
-    "id": "scam-013", "label": "scam", "sender_name": "Visionbrew Recruiting", "sender_email": "visionbrew.recruiting@outlook.com", "claimed_company": "Visionbrew", "subject": "Your Visionbrew application has advanced", "injected_flaws": ["domain_mismatch", "generic_greeting"],
+    "id": "scam-013",
+    "label": "scam",
+    "sender_name": "Visionbrew Recruiting",
+    "sender_email": "visionbrew.recruiting@outlook.com",
+    "claimed_company": "Visionbrew",
+    "subject": "Your Visionbrew application has advanced",
+    "injected_flaws": [
+      "domain_mismatch",
+      "generic_greeting"
+    ],
     "body": "Dear Applicant,\n\nThank you for your interest in Visionbrew. Your application has advanced to the next stage of our hiring process for a mobile engineering position. We are contacting a group of shortlisted candidates this week to move things along quickly ahead of our next product launch.\n\nTo continue, please reply with your resume attached again along with your available start dates over the next month. A member of our team will follow up with interview details once we hear back from enough candidates in this round.\n\nVisionbrew Recruiting"
   },
   {
-    "id": "scam-014", "label": "scam", "sender_name": "NYU Career Services", "sender_email": "nyu.careers@yahoo.com", "claimed_company": "NYU", "subject": "Campus job oppertunity for NYU students", "injected_flaws": ["domain_mismatch", "misspelling"],
-    "body": "Hello Jordan,\n\nNYU Career Services is helping connect students with a flexible campus research assistant position for the semester. The role pays $35 an hour for light data entry and does not require prior reserach experience. Hours are flexible around your class schedule, and the position can begin as soon as you confirm your interest.\n\nPlease reply with your student ID number and a copy of your class schedule so we can verify eligiblity and match you with a supervisor. We are filling positions on a rolling basis, so an early response is appretiated.\n\nNYU Career Services"
+    "id": "scam-014",
+    "label": "scam",
+    "sender_name": "NYU Career Services",
+    "sender_email": "nyu.careers@yahoo.com",
+    "claimed_company": "NYU",
+    "subject": "Campus job oppertunity for NYU students",
+    "injected_flaws": [
+      "domain_mismatch",
+      "misspelling"
+    ],
+    "body": "Hello Mr. Gupta,\n\nNYU Career Services is helping connect students with a flexible campus research assistant position for the semester. The role pays $35 an hour for light data entry and does not require prior reserach experience. Hours are flexible around your class schedule, and the position can begin as soon as you confirm your interest.\n\nPlease reply with your student ID number and a copy of your class schedule so we can verify eligiblity and match you with a supervisor. We are filling positions on a rolling basis, so an early response is appretiated.\n\nNYU Career Services"
   },
   {
-    "id": "scam-015", "label": "scam", "sender_name": "Netflix Talent", "sender_email": "netflix.talent.hr@gmail.com", "claimed_company": "Netflix", "subject": "Remote Netflix opportunity - flexible hours", "injected_flaws": ["domain_mismatch", "unrealistic_offer"],
-    "body": "Hi Jordan,\n\nNetflix is expanding a remote content review program and would like to invite you to join based on your public profile. The role pays $85 an hour for reviewing short video clips from home, with no prior media experience required and a schedule you set entirely yourself.\n\nMost reviewers work about ten hours a week and can start within a few days of enrollment. If you are interested, reply with your availability and preferred start date, and a coordinator will send the enrollment steps and equipment details.\n\nNetflix Talent"
+    "id": "scam-015",
+    "label": "scam",
+    "sender_name": "Netflix Talent",
+    "sender_email": "netflix.talent.hr@gmail.com",
+    "claimed_company": "Netflix",
+    "subject": "Remote Netflix opportunity - flexible hours",
+    "injected_flaws": [
+      "domain_mismatch",
+      "unrealistic_offer"
+    ],
+    "body": "Hi Somya,\n\nNetflix is expanding a remote content review program and would like to invite you to join based on your public profile. The role pays $85 an hour for reviewing short video clips from home, with no prior media experience required and a schedule you set entirely yourself.\n\nMost reviewers work about ten hours a week and can start within a few days of enrollment. If you are interested, reply with your availability and preferred start date, and a coordinator will send the enrollment steps and equipment details.\n\nNetflix Talent"
   },
   {
-    "id": "scam-016", "label": "scam", "sender_name": "Apple Remote Hiring", "sender_email": "apple.remote.hiring@gmail.com", "claimed_company": "Apple", "subject": "Workstation deposit for your Apple remote position", "injected_flaws": ["domain_mismatch", "financial_request"],
-    "body": "Hello Jordan,\n\nCongratulations on being selected for a remote technical support position with Apple. Your onboarding coordinator is preparing a company workstation, including a laptop and secure VPN token, so that you can begin training as soon as it arrives.\n\nA refundable equipment deposit of $190 is required before shipment, which will be returned in your first paycheck. Please confirm today with your preferred shipping address so we can send the payment instructions and reserve your onboarding slot this week.\n\nApple Remote Hiring"
+    "id": "scam-016",
+    "label": "scam",
+    "sender_name": "Apple Remote Hiring",
+    "sender_email": "apple.remote.hiring@gmail.com",
+    "claimed_company": "Apple",
+    "subject": "Workstation deposit for your Apple remote position",
+    "injected_flaws": [
+      "domain_mismatch",
+      "financial_request"
+    ],
+    "body": "Hello Somya Gupta,\n\nCongratulations on being selected for a remote technical support position with Apple. Your onboarding coordinator is preparing a company workstation, including a laptop and secure VPN token, so that you can begin training as soon as it arrives.\n\nA refundable equipment deposit of $190 is required before shipment, which will be returned in your first paycheck. Please confirm today with your preferred shipping address so we can send the payment instructions and reserve your onboarding slot this week.\n\nApple Remote Hiring"
   },
   {
-    "id": "scam-017", "label": "scam", "sender_name": "localhost:nyc Talent", "sender_email": "localhostnyc.talent@gmail.com", "claimed_company": "localhost:nyc", "subject": "Final round invite - localhost:nyc builder program", "injected_flaws": ["domain_mismatch", "urgency_pressure"],
-    "body": "Hello Jordan,\n\nFollowing the hackathon this weekend, your team has been selected for the final round of our builder-in-residence program with localhost:nyc. This round includes a stipend and dedicated desk space at our hacker house starting next month.\n\nWe need to confirm all final-round spots by tonight, so please reply as soon as possible with your teammates' full names and phone numbers so we can send the program agreement before our internal deadline passes.\n\nlocalhost:nyc Talent"
+    "id": "scam-017",
+    "label": "scam",
+    "sender_name": "localhost:nyc Talent",
+    "sender_email": "localhostnyc.talent@gmail.com",
+    "claimed_company": "localhost:nyc",
+    "subject": "Final round invite - localhost:nyc builder program",
+    "injected_flaws": [
+      "domain_mismatch",
+      "urgency_pressure"
+    ],
+    "body": "Hello Mr. Gupta,\n\nFollowing the hackathon this weekend, your team has been selected for the final round of our builder-in-residence program with localhost:nyc. This round includes a stipend and dedicated desk space at our hacker house starting next month.\n\nWe need to confirm all final-round spots by tonight, so please reply as soon as possible with your teammates' full names and phone numbers so we can send the program agreement before our internal deadline passes.\n\nlocalhost:nyc Talent"
   }
 ]

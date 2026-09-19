@@ -24,6 +24,10 @@ module.exports = async (env, options) => {
         import: ["./src/taskpane/index.tsx", "./src/taskpane/taskpane.html"],
         dependOn: "react",
       },
+      demo: {
+        import: ["./src/demo/index.tsx", "./src/demo/demo.html"],
+        dependOn: "react",
+      },
       commands: "./src/commands/commands.ts",
     },
     output: {
@@ -89,6 +93,11 @@ module.exports = async (env, options) => {
         filename: "commands.html",
         template: "./src/commands/commands.html",
         chunks: ["polyfill", "commands"],
+      }),
+      new HtmlWebpackPlugin({
+        filename: "demo.html",
+        template: "./src/demo/demo.html",
+        chunks: ["polyfill", "demo", "react"],
       }),
       new webpack.ProvidePlugin({
         Promise: ["es6-promise", "Promise"],
