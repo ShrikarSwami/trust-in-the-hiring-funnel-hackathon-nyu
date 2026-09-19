@@ -165,10 +165,11 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
    fixed via `spell-allowlist.txt`. **`npm run calibrate` confirms 30/30.** Backend 52/52 tests
    + `tsc --noEmit`, add-in tests + build all clean.
 
-   **Status: demo-ready, being polished.** Live-verified in the browser by Shrikar (not a
-   real Outlook account — the standalone demo page): sweep/verdict/highlights all render
-   correctly and cached results return near-instantly. Iterating on visual polish per feedback
-   (see the demo-pivot Current State entry above for what's already landed).
+   **Status: DONE, confirmed by Shrikar.** Live-verified in the browser (standalone demo
+   page, not a real Outlook account): sweep/verdict/highlights all render correctly, cached
+   results return near-instantly, visual polish approved (see the demo-pivot Current State
+   entry above for the full list of what landed). No further work planned unless something
+   breaks before judging.
 
    **Deferred minors (unchanged from earlier handoff, still low priority):** LLM quotes with
    mid-quote "…" can't be located and are dropped; `parseLlmJson` uses first-{/last-};
@@ -419,3 +420,16 @@ commits for detail.
   length); emoji icons replaced with flat SVG icons; scanline/highlight animation made more
   dramatic; added a "Check {company}'s real careers page" link using real, search-verified
   URLs (not Abhiram's app, and not guessed). All checks green throughout.
+- **2026-09-19 3:28 PM** — Claude (orchestrator): final polish round before the demo -
+  VerdictBanner rebuilt as a Windows-Defender-style security card (shield icons, muted
+  colors, structured meta line) instead of a colorful banner, shared by both the real add-in
+  and the demo page; scanline given a chromatic-aberration glitch effect (independent
+  cyan/magenta jitter + brief flicker) for a more "actively scanning" feel; hand-drawn chrome
+  icons replaced with real MIT-licensed icons fetched from Microsoft's own
+  `fluentui-system-icons` GitHub repo, path data inlined with `currentColor` for correct
+  recoloring per context. **Shrikar confirmed it looks good — email scanner demo is DONE.**
+  Final state: `email-scanner/addin/demo.html` (built) is the primary judging-day demo
+  surface; real Outlook add-in also exists/works if wanted as a secondary "yes it's real"
+  proof point (see `README.md` for sideload steps). All checks green: backend 52/52 tests +
+  `tsc --noEmit`, add-in tests + `tsc --noEmit` + production build. Working tree clean,
+  nothing outstanding to commit.
