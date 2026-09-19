@@ -238,3 +238,6 @@ commits for detail.
   both servers stopped afterward. Sideload into Outlook on the web NOT attempted (needs
   interactive sign-in as `slhj1208@outlook.com`) — steps recorded in Next Steps. Full report:
   `.superpowers/sdd/2026-09-19-email-scanner/task-9-report.md`.
+- **2026-09-19** — Claude (email-scanner): added `operatorTasks.md` — Shrikar-only steps for
+  (1) sideloading the Trust Scanner add-in into Outlook on the web and (2) testing an
+  Outlook.com app password for IMAP seeding (openssl LOGIN test; report "IMAP OK/failed").
