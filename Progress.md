@@ -43,11 +43,16 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
      In progress in `email-scanner/backend`: Tasks 1–7 done (scaffold/types/config,
      known-companies data + claimed-company detection, sender-domain rule, spellcheck rule
      with false-positive guards, verdict computation, LLM prompt/tolerant JSON parsing/span
-     location, Ollama client with retry/timeout/warm-up/health + live smoke script); 42/42
-     tests passing. Live smoke test against Thor (`llama3:70b`) confirmed working end-to-end
-     (`status: "ok"`, 27.9s). Local Ollama fallback (`localhost:11434`) still down — needs
-     `ollama serve` + `ollama pull qwen2.5vl:7b` before demo if Thor is unreachable. Tasks
-     8–15 of the implementation plan still to come.
+     location, Ollama client with retry/timeout/warm-up/health + live smoke script). **Backend
+     complete (Task 8):** `src/scan.ts` (`scanEmail` orchestrator) and `src/server.ts`
+     (`createApp`, Express 5, `POST /scan` + `GET /health`) + `src/index.ts` entrypoint; 51/51
+     tests passing. Live end-to-end run against Thor (`llama3:70b`) via the real HTTP server
+     confirmed working: `GET /health` → `reachable: true, modelPresent: true`; `POST /scan` on
+     a fake Tesla/Gmail email → `"Likely Scam"` with `domain_mismatch`, a `misspelling` on
+     "detials", two `llm_*` flags, `llm_status: "ok"`, ~22s. Local Ollama fallback
+     (`localhost:11434`) still down — needs `ollama serve` + `ollama pull qwen2.5vl:7b` before
+     demo if Thor is unreachable. Tasks 9–15 of the implementation plan (Office add-in,
+     synthetic data, IMAP seeding, demo runbook) still to come.
   2. **Job-posting verification tool** (Abhiram's build) — checks postings claiming to be from
      a company against that company's real published job list. No design yet; intentionally
      left for Abhiram + his agent(s) to brainstorm and design themselves.
@@ -68,11 +73,12 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 
 ## Next Steps
 
-1. **Email scanner:** Tasks 1–7 done (backend scaffold, shared types, env config;
-   known-companies data + claimed-company detection; sender-domain rule; spellcheck rule with 
-   false-positive guards; verdict computation; LLM prompt/tolerant JSON parsing/span location;
-   Ollama client with retry/timeout/warm-up/health + live smoke script)
-   in `email-scanner/backend`. Continue executing Tasks 8–15 of
+1. **Email scanner:** Backend complete — Tasks 1–8 done (backend scaffold, shared types, env
+   config; known-companies data + claimed-company detection; sender-domain rule; spellcheck
+   rule with false-positive guards; verdict computation; LLM prompt/tolerant JSON
+   parsing/span location; Ollama client with retry/timeout/warm-up/health + live smoke script;
+   `/scan` orchestrator + Express server with `POST /scan`/`GET /health`)
+   in `email-scanner/backend`. Continue executing Tasks 9–15 of
    [docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md).
    **Demo-readiness gap:** local Ollama fallback (`localhost:11434`) is not running — before
    the demo, run `ollama serve` and `ollama pull qwen2.5vl:7b` on the Mac so the
@@ -182,3 +188,10 @@ commits for detail.
   in `test/llm-parse.test.ts`), `tsc --noEmit` clean. Re-ran live smoke against Thor: `status:
   "ok"`, 31.3s, reasons now real sentences (e.g. "Legitimate employers typically conduct
   interviews before making job offers.").
+- **2026-09-19** — Claude (email-scanner) Task 8: added `src/scan.ts` (`scanEmail` orchestrator,
+  `ScanDeps`), `src/server.ts` (`createApp` — Express 5, `POST /scan` with zod validation,
+  `GET /health`), `src/index.ts` (entrypoint wiring config/companies/LLM client); 51/51 tests
+  passing (7 new: `test/scan.test.ts`, `test/server.test.ts`), `tsc --noEmit` clean. Live e2e
+  against Thor via `npm start`: health `reachable: true, modelPresent: true`; scan of a fake
+  Tesla/Gmail email → `"Likely Scam"`, `domain_mismatch` + `misspelling` on "detials" + two
+  `llm_*` flags, `llm_status: "ok"`, ~22s; server stopped cleanly after. Backend now complete.
