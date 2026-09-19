@@ -40,10 +40,10 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
   1. **Email trust scanner** (Shrikar's build) — real Outlook Office-JS add-in; hybrid
      rules+LLM detection; design approved and written up in
      [docs/superpowers/specs/2026-09-19-email-scanner-design.md](docs/superpowers/specs/2026-09-19-email-scanner-design.md).
-     In progress in `email-scanner/backend`: Tasks 1–5 done (scaffold/types/config,
+     In progress in `email-scanner/backend`: Tasks 1–6 done (scaffold/types/config,
      known-companies data + claimed-company detection, sender-domain rule, spellcheck rule
-     with false-positive guards, verdict computation); 27/27 tests passing. Tasks 6–15 of the 
-     implementation plan still to come.
+     with false-positive guards, verdict computation, LLM prompt/tolerant JSON parsing/span
+     location); 36/36 tests passing. Tasks 7–15 of the implementation plan still to come.
   2. **Job-posting verification tool** (Abhiram's build) — checks postings claiming to be from
      a company against that company's real published job list. No design yet; intentionally
      left for Abhiram + his agent(s) to brainstorm and design themselves.
@@ -64,10 +64,10 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 
 ## Next Steps
 
-1. **Email scanner:** Tasks 1–5 done (backend scaffold, shared types, env config;
+1. **Email scanner:** Tasks 1–6 done (backend scaffold, shared types, env config;
    known-companies data + claimed-company detection; sender-domain rule; spellcheck rule with 
-   false-positive guards; verdict computation) in `email-scanner/backend`.
-   Continue executing Tasks 6–15 of
+   false-positive guards; verdict computation; LLM prompt/tolerant JSON parsing/span location)
+   in `email-scanner/backend`. Continue executing Tasks 7–15 of
    [docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md).
    **Shrikar action, can start now:** try an Outlook.com app password for
    `slhj1208@outlook.com` IMAP (plan Task 14 Step 3) — Outlook.com may reject basic-auth IMAP,
@@ -153,3 +153,8 @@ commits for detail.
   (no origin badge/colour; demo entries use source "Demo sample"; `origin` kept in the JSON schema
   for filtering only). Per Abhiram's explicit instruction, this component's commits are pushed
   under his own account `abhiramkandadi` (not `slhj1208` as CLAUDE.md says) — Shrikar FYI.
+- **2026-09-19** — Claude (email-scanner) Task 6: added `src/llm/prompt.ts` (`SYSTEM_PROMPT`,
+  `buildUserPrompt`, `RESPONSE_SCHEMA`) and `src/llm/parse.ts` (`parseLlmJson`, `locateSpan`,
+  `findingsToFlags`) — tolerant JSON extraction/parsing (zod 4, code fences, `flags`/`findings`
+  key tolerance, category defaulting) and whitespace/case/curly-quote-tolerant span location;
+  36/36 tests passing (9 new), `tsc --noEmit` clean.
