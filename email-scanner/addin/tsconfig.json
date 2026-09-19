@@ -9,6 +9,7 @@
     "moduleResolution": "bundler",
     "noImplicitReturns": true,
     "noUnusedParameters": true,
+    "resolveJsonModule": true,
     "outDir": "dist",
     "sourceMap": true,
     "target": "es6",
