@@ -90,24 +90,45 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 
 ## Next Steps
 
-1. **Email scanner:** Backend complete (Tasks 1–8); Task 9 (Outlook add-in scaffold + `/api`
-   proxy + manifest rename) and Task 10 (highlight segment builder, `src/taskpane/lib/segments.ts`)
-   also done — see Current State. Continue executing Tasks 11–15 of
+1. **Email scanner — HANDOFF (Claude email-scanner session ended at context limit, ~1:00 PM).**
+   **Done & pushed (each reviewed):** Tasks 1–10 of
    [docs/superpowers/plans/2026-09-19-email-scanner.md](docs/superpowers/plans/2026-09-19-email-scanner.md).
-   **Demo-readiness gap:** local Ollama fallback (`localhost:11434`) is not running — before
-   the demo, run `ollama serve` and `ollama pull qwen2.5vl:7b` on the Mac so the
-   `OLLAMA_BASE_URL=http://localhost:11434 OLLAMA_MODEL=qwen2.5vl:7b` fallback path is exercised.
-   **Shrikar action, can start now:** (a) try an Outlook.com app password for
-   `slhj1208@outlook.com` IMAP (plan Task 14 Step 3) — Outlook.com may reject basic-auth IMAP,
-   in which case an Entra app registration is needed; (b) sideload the add-in (not attempted by
-   the agent — requires interactive sign-in): `cd email-scanner/backend && npm start` (leave
-   running), then in `email-scanner/addin` run `npm run dev-server` (serves
-   `https://localhost:3000`), open `https://localhost:3000/taskpane.html` once to confirm no
-   cert warning, sign in to Outlook on the web as `slhj1208@outlook.com`, open
-   `https://aka.ms/olksideload`, then My add-ins → Custom Add-ins → Add a custom add-in → Add
-   from file → `email-scanner/addin/manifest.xml`, open any email and click "Scan for scams"
-   (under the "…"/Apps menu if not pinned). With the backend running, `fetch("/api/health")`
-   from the pane's devtools console should return the backend's JSON (proves the proxy).
+   Backend (`email-scanner/backend`, 51 vitest tests) is complete: `POST /scan`, `GET /health`,
+   rules (domain + spellcheck) + Thor `llama3:70b` LLM check (~20–30s/scan, live-verified).
+   Add-in (`email-scanner/addin`) scaffolded with `/api`→:3001 proxy and valid manifest;
+   `src/taskpane/types.ts` + `lib/segments.ts` (5 tests) done. **Shrikar has sideloaded the
+   add-in in Outlook web and is running both servers** (backend `npm start` on :3001 — NOT
+   watch mode, restart after backend edits; addin `npm run dev-server` on :3000 with HMR).
+   **Remaining, in this order:**
+   - **Task 11** (demo-critical): real task-pane UI — `lib/office.ts`, `lib/api.ts`,
+     `components/{EmailView,useSweep,VerdictBanner,FlagList,App}.tsx`, `taskpane.css`; delete
+     scaffold demo components. ALSO (ruling): in `manifest.xml` remove the leftover
+     "Perform an action" ActionButton and rename GroupLabel "Contoso Add-in" → "Trust Scanner"
+     (judges see the ribbon). Do NOT start servers on :3000/:3001 (Shrikar's are running);
+     verify with `npx tsc --noEmit` + `npm run build`, then ask Shrikar to test in Outlook.
+   - **Task 12:** `email-scanner/data/synthetic-emails.json` (16 emails, table in plan — check
+     first whether Abhiram's agent already added one) + `backend/scripts/calibrate.ts`; tune
+     prompt/allowlist, NOT the verdict rule.
+   - **Task 14b (ruling: UNCONDITIONAL, do right after 12):** in-pane sample picker
+     (`addin/src/taskpane/samples.json` + `<select>` in App) so the demo never depends on the
+     mailbox.
+   - **Task 13** (.eml builder), **Task 14** (IMAP APPEND seed script). Ruling: skip Entra/OAuth
+     (Step 4) unless Shrikar reports "IMAP OK" is impossible AND time remains.
+   - **Task 15:** demo dry run, Thor-down drill, `email-scanner/README.md` runbook, final checks.
+   **Process used:** superpowers:subagent-driven-development — per task: generate brief with the
+   skill's `scripts/task-brief`, dispatch implementer (sonnet), review with `scripts/review-package`
+   + reviewer (sonnet), fix loop if needed; every task commits+pushes to main with a Progress.md
+   log line. Local (git-ignored) ledger + briefs + reports + reusable rules live in
+   `.superpowers/sdd/2026-09-19-email-scanner/` on Shrikar's Mac (`progress.md` = ledger,
+   `implementer-rules.md`, `global-constraints.md`, `task-{11..15,14b}-brief.md` already generated).
+   **Deferred minors (for final review):** LLM quotes with mid-quote "…" can't be located and are
+   dropped; `parseLlmJson` uses first-{/last-}; backend logs 200 chars of unparseable model
+   output; `buildSegments` priority only tie-breaks equal starts (parked — hard flags only occur on
+   the sender line); unused generator `manifest.json`; manifest internal ids say "Compose".
+   **Human actions pending (see [operatorTasks.md](operatorTasks.md)):** Outlook.com app-password
+   IMAP test (report "IMAP OK/failed"). **Demo-readiness gap:** local Ollama fallback not running —
+   `ollama serve` + `ollama pull qwen2.5vl:7b`, then `OLLAMA_BASE_URL=http://localhost:11434
+   OLLAMA_MODEL=qwen2.5vl:7b` in `backend/.env`; `LLM_ENABLED=false` gives rules-only instantly.
 2. **Job-posting verifier:** Abhiram to drop real scraped postings into
    `job-posting-verifier/data/claimed-postings.json` (schema in that file; `origin: "real"`),
    then tune matcher thresholds (`lib/match.ts`) against them (re-run `scripts/selftest.mts`, check no
@@ -252,3 +273,7 @@ commits for detail.
   pure highlight segment builder, tiles text exactly, resolves overlaps hard > soft > verified
   with later marks clipped); TDD with vitest (new devDependency, `test:unit` script); 5/5 tests
   passing, `tsc --noEmit` and dev webpack build both clean.
+
+- **2026-09-19** — Claude (email-scanner): Task 10 review Approved (1 parked edge case in
+  `buildSegments`, no demo impact). Session hit context limit — wrote full handoff under Next
+  Steps item 1 (remaining Tasks 11, 12, 14b, 13, 14, 15; rulings; running-server notes).
