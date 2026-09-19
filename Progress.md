@@ -18,7 +18,8 @@ Full event brief: [docs/event-brief.md](docs/event-brief.md).
 One-line problem: Generative AI has broken trust on both sides of hiring — recruiters can't
 tell which applicants are real, and candidates can't tell which employers/offers are real.
 Build a working tool (triage/screening layer, or a verification tool) that attacks either side
-of the funnel, or the seam between them. Submissions due 4:30 PM; demos/judging 4:30–6:00 PM.
+of the funnel, or the seam between them. **Submissions due 4:00 PM** (moved up from the
+originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
 
 ## Team / Agents Involved
 

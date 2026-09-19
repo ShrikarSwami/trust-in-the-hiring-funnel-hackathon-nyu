@@ -5,8 +5,9 @@ Source: Luma event page ("Trust in the Hiring Funnel Hackathon @ NYU"), captured
 ## Logistics
 
 - **When:** Saturday, September 19, 2026, 10:00 AM – 6:00 PM (doors 9:30 AM, official start
-  10:00 AM, intros/hacking begin sharply 11:00 AM, submissions due 4:30 PM, judging/demos
-  4:30–6:00 PM)
+  10:00 AM, intros/hacking begin sharply 11:00 AM). **Submissions due 4:00 PM** (updated by
+  Shrikar 2026-09-19; the original Luma page said 4:30 PM — treat 4:00 PM as authoritative).
+  Judging/demos following submission close.
 - **Where:** NYU MakerSpace, 6 MetroTech Center, Brooklyn, NY 11201
 - **Format:** Full-day, in-person, small teams (or solo) working in one shared room. Laptops
   required. Breakfast and lunch provided. Physical ID required for check-in (college campus
