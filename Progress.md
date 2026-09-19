@@ -59,7 +59,7 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
      `office-addin-manifest validate`). Dev certs installed. Verified with both servers running:
      `https://localhost:3000/taskpane.html` serves HTML and `https://localhost:3000/api/health`
      proxies through to the backend's real JSON. Sideload into Outlook on the web NOT attempted
-     (needs Shrikar's sign-in) — steps in Next Steps below. **Task 10 done:** pure highlight
+     (needs Shrikar's sign-in) — steps in Next Steps below. **Task 11 implemented locally:** the add-in task pane now reads the open email, scans through `/api/scan`, sweeps over plain-text highlights, and shows verdict/findings; the extra ribbon action was removed. Typecheck, unit tests, production build, and manifest validation pass. Live Outlook verification and screenshot remain pending with Shrikar. **Task 10 done:** pure highlight
      segment builder for the task pane — `src/taskpane/types.ts` (verbatim copy of backend
      types), `src/taskpane/lib/segments.ts` (`marksFor`, `buildSegments`, tiling overlap
      resolution: hard > soft > verified, later mark clipped), TDD with vitest (added as
@@ -100,12 +100,7 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
    add-in in Outlook web and is running both servers** (backend `npm start` on :3001 — NOT
    watch mode, restart after backend edits; addin `npm run dev-server` on :3000 with HMR).
    **Remaining, in this order:**
-   - **Task 11** (demo-critical): real task-pane UI — `lib/office.ts`, `lib/api.ts`,
-     `components/{EmailView,useSweep,VerdictBanner,FlagList,App}.tsx`, `taskpane.css`; delete
-     scaffold demo components. ALSO (ruling): in `manifest.xml` remove the leftover
-     "Perform an action" ActionButton and rename GroupLabel "Contoso Add-in" → "Trust Scanner"
-     (judges see the ribbon). Do NOT start servers on :3000/:3001 (Shrikar's are running);
-     verify with `npx tsc --noEmit` + `npm run build`, then ask Shrikar to test in Outlook.
+   - **Task 11 live check pending:** Shrikar to refresh/reopen the sideloaded Outlook pane, scan an email, confirm waiting/sweep/verdict/highlight jumps, and capture a screenshot. Also verify a backend-down rescan and `LLM_ENABLED=false` scan when convenient.
    - **Task 12:** `email-scanner/data/synthetic-emails.json` (16 emails, table in plan — check
      first whether Abhiram's agent already added one) + `backend/scripts/calibrate.ts`; tune
      prompt/allowlist, NOT the verdict rule.
@@ -157,6 +152,8 @@ originally-posted 4:30 PM — see `docs/event-brief.md`); demos/judging follow.
       scoped (both are client-side/verification tools, not ATS-side), revisit if scope changes.
 
 ## Log
+
+- **2026-09-19** — Codex (email-scanner) Task 11: replaced the add-in demo pane with Outlook email reading, backend scan request, animated highlight sweep, verdict and finding navigation; removed scaffold components and the manifest action button, renamed the ribbon group. Added busy/error/reduced-motion handling and text-only rendering. Add-in typecheck, 5 unit tests, production build, and manifest validation pass. Live Outlook check and screenshot remain pending.
 
 Add a dated entry each time an agent completes a chunk of work. Keep entries short — link to
 commits for detail.

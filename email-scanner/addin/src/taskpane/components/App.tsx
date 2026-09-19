@@ -1,47 +1,50 @@
 import * as React from "react";
-import Header from "./Header";
-import HeroList, { HeroListItem } from "./HeroList";
-import TextInsertion from "./TextInsertion";
-import { makeStyles } from "@fluentui/react-components";
-import { Ribbon24Regular, LockOpen24Regular, DesignIdeas24Regular } from "@fluentui/react-icons";
-import { insertText } from "../taskpane";
+import { readCurrentEmail } from "../lib/office";
+import { scanEmail } from "../lib/api";
+import type { ScanRequest, ScanResult } from "../types";
+import { EmailView } from "./EmailView";
+import { VerdictBanner } from "./VerdictBanner";
+import { FlagList } from "./FlagList";
+import { useSweep } from "./useSweep";
 
-interface AppProps {
-  title: string;
-}
+type Phase = "idle" | "waiting" | "sweeping" | "done" | "error";
 
-const useStyles = makeStyles({
-  root: {
-    minHeight: "100vh",
-  },
-});
+export default function App() {
+  const [phase, setPhase] = React.useState<Phase>("idle");
+  const [email, setEmail] = React.useState<ScanRequest | null>(null);
+  const [result, setResult] = React.useState<ScanResult | null>(null);
+  const [error, setError] = React.useState<string | null>(null);
+  const contentRef = React.useRef<HTMLDivElement>(null);
+  const lineRef = React.useRef<HTMLDivElement>(null);
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const busy = phase === "waiting" || phase === "sweeping";
+  const finishSweep = React.useCallback(() => setPhase("done"), []);
+  useSweep(phase === "sweeping", contentRef, lineRef, scrollRef, finishSweep);
 
-const App: React.FC<AppProps> = (props: AppProps) => {
-  const styles = useStyles();
-  // The list items are static and won't change at runtime,
-  // so this should be an ordinary const, not a part of state.
-  const listItems: HeroListItem[] = [
-    {
-      icon: <Ribbon24Regular />,
-      primaryText: "Achieve more with Office integration",
-    },
-    {
-      icon: <LockOpen24Regular />,
-      primaryText: "Unlock features and functionality",
-    },
-    {
-      icon: <DesignIdeas24Regular />,
-      primaryText: "Create and visualize like a pro",
-    },
-  ];
+  const run = async () => {
+    if (busy) return;
+    setError(null);
+    setResult(null);
+    setPhase("waiting");
+    try {
+      const request = await readCurrentEmail();
+      setEmail(request);
+      const response = await scanEmail(request);
+      setResult(response);
+      setPhase("sweeping");
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Could not scan this email. Please retry.");
+      setPhase("error");
+    }
+  };
 
-  return (
-    <div className={styles.root}>
-      <Header logo="assets/logo-filled.png" title={props.title} message="Welcome" />
-      <HeroList message="Discover what this add-in can do for you today!" items={listItems} />
-      <TextInsertion insertText={insertText} />
+  return <div className="app">
+    <header className="bar"><div className="brand">Trust Scanner</div><button className="scan-btn" type="button" onClick={run} disabled={busy}>{busy ? "Scanning…" : phase === "done" ? "Rescan" : "Scan email"}</button></header>
+    {phase === "done" && result && <VerdictBanner result={result} />}
+    {error && <div className="error" role="alert">{error}</div>}
+    <div className={`scroller phase-${phase}`} ref={scrollRef} aria-busy={busy}>
+      {email ? <EmailView email={email} result={result} scanning={phase === "waiting"} contentRef={contentRef} lineRef={lineRef} /> : <p className="hint">Open a recruiting email and press <strong>Scan email</strong> to check it for impersonation and scam signals.</p>}
     </div>
-  );
-};
-
-export default App;
+    {phase === "done" && result && <FlagList result={result} />}
+  </div>;
+}
